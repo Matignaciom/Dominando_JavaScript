@@ -187,3 +187,7 @@ fetch('https://api.ejemplo.com/data')
 ```
 
 Estos son algunos de los conceptos fundamentales que te ayudarán a comprender y utilizar JavaScript de manera efectiva. JavaScript es un lenguaje poderoso y versátil que se utiliza en una variedad de contextos, incluyendo desarrollo web, aplicaciones móviles y más. Practicar y trabajar en proyectos te ayudará a fortalecer tus habilidades en JavaScript.
+
+## No olvides dar las gracias
+
+Hecho con ❤️ por Matias Ignacio - https://github.com/Matignaciom
