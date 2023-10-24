@@ -1,3 +1,7 @@
+### JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado
+
+Este repositorio es una guía completa para aprender JavaScript, comenzando desde los fundamentos más básicos y avanzando hacia técnicas avanzadas. Ya sea que seas un principiante que recién comienza a programar o un desarrollador intermedio que busca perfeccionar sus habilidades, encontrarás lecciones y ejemplos prácticos para ayudarte a dominar JavaScript.
+
 ### 1. Variables y Tipos de Datos
 
 JavaScript es un lenguaje de programación dinámico que te permite declarar variables utilizando tres palabras clave: `var`, `let`, y `const`. Estas palabras clave tienen diferentes alcances y usos.
