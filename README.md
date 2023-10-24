@@ -262,25 +262,207 @@ Este ejemplo abarca los conceptos de bucles for, while, do...while, iteración a
 Las funciones son bloques de código reutilizables que pueden recibir argumentos y devolver valores.
 
 ```javascript
+// 1. Declaración de una función con parámetros y valor de retorno
 function suma(a, b) {
-  return a + b;
+    return a + b;
 }
 
+// 2. Llamada a la función y almacenamiento del resultado
 var resultado = suma(2, 3);
-console.log("Resultado: " + resultado); // Resultado: 5
+
+// 3. Impresión del resultado en la consola
+console.log("Resultado de la suma:", resultado); // Resultado de la suma: 5
+
+// 4. Función sin valor de retorno
+function saludar(nombre) {
+    console.log("Hola, " + nombre + "!");
+}
+
+// 5. Llamada a la función sin valor de retorno
+saludar("Juan"); // Imprime "Hola, Juan!"
+
+// 6. Función con parámetros predeterminados (ES6+)
+function calcularPrecio(precioBase, descuento = 0) {
+    return precioBase - (precioBase * descuento);
+}
+
+var precioFinal1 = calcularPrecio(100, 0.1); // Con descuento del 10%
+console.log("Precio final con descuento:", precioFinal1); // Precio final con descuento: 90
+
+var precioFinal2 = calcularPrecio(75); // Sin descuento (descuento predeterminado)
+console.log("Precio final sin descuento:", precioFinal2); // Precio final sin descuento: 75
+
+// 7. Función anónima y asignación a una variable
+var multiplicar = function (x, y) {
+    return x * y;
+};
+
+var producto = multiplicar(4, 5);
+console.log("Producto:", producto); // Producto: 20
+
+// 8. Función flecha (ES6+)
+const dividir = (a, b) => a / b;
+
+const cociente = dividir(10, 2);
+console.log("Cociente:", cociente); // Cociente: 5
+
+// 9. Función recursiva (llamada a sí misma)
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+var resultadoFactorial = factorial(5);
+console.log("Factorial de 5:", resultadoFactorial); // Factorial de 5: 120
+
+// 10. Función como argumento de otra función (callback)
+function operacion(a, b, operador) {
+    return operador(a, b);
+}
+
+function resta(x, y) {
+    return x - y;
+}
+
+var resultadoOperacion = operacion(8, 3, resta);
+console.log("Resultado de la resta:", resultadoOperacion); // Resultado de la resta: 5
+
+// 11. Cierre (closure) y función interna
+function contador() {
+    var count = 0;
+
+    function incrementar() {
+        count++;
+        console.log("Contador:", count);
+    }
+
+    return incrementar;
+}
+
+var incremento = contador();
+incremento(); // Contador: 1
+incremento(); // Contador: 2
+
+// 12. Función como método de un objeto
+var calculadora = {
+    sumar: function (x, y) {
+        return x + y;
+    },
+    restar: function (x, y) {
+        return x - y;
+    }
+};
+
+var sumaResult = calculadora.sumar(5, 3);
+var restaResult = calculadora.restar(8, 2);
+
+console.log("Suma:", sumaResult); // Suma: 8
+console.log("Resta:", restaResult); // Resta: 6
 ```
+Este ejemplo cubre los siguientes aspectos relacionados con funciones en JavaScript:
+
+1. Declaración de funciones.
+2. Llamada a funciones y retorno de valores.
+3. Funciones sin valor de retorno.
+4. Parámetros predeterminados (ES6+).
+5. Funciones anónimas y asignación a variables.
+6. Funciones flecha (ES6+).
+7. Funciones recursivas.
+8. Funciones como argumentos de otras funciones (callbacks).
+9. Cierre (closure) y funciones internas.
+10. Funciones como métodos de objetos.
+    
+Estos conceptos son fundamentales para comprender cómo trabajar con funciones en JavaScript y cómo pueden ser utilizados en diversos escenarios de programación.
 
 ### 6. Arreglos
 
 Los arreglos almacenan conjuntos de valores en una sola variable.
 
 ```javascript
+// 1. Declaración de un arreglo
 var frutas = ["manzana", "banana", "naranja"];
+
+// 2. Acceder a elementos del arreglo por índice
 console.log(frutas[0]); // manzana
 
-frutas.push("uva"); // Agregar un elemento al final
-console.log(frutas); // ["manzana", "banana", "naranja", "uva"]
+// 3. Propiedad 'length' para obtener la cantidad de elementos
+console.log("Cantidad de frutas:", frutas.length); // Cantidad de frutas: 3
+
+// 4. Agregar un elemento al final del arreglo con 'push'
+frutas.push("uva");
+console.log("Frutas después de agregar uva:", frutas); // ["manzana", "banana", "naranja", "uva"]
+
+// 5. Eliminar el último elemento del arreglo con 'pop'
+var frutaEliminada = frutas.pop();
+console.log("Fruta eliminada:", frutaEliminada); // Fruta eliminada: uva
+console.log("Frutas después de eliminar la uva:", frutas); // ["manzana", "banana", "naranja"]
+
+// 6. Agregar un elemento al principio del arreglo con 'unshift'
+frutas.unshift("cereza");
+console.log("Frutas después de agregar cereza al principio:", frutas); // ["cereza", "manzana", "banana", "naranja"]
+
+// 7. Eliminar el primer elemento del arreglo con 'shift'
+var primeraFruta = frutas.shift();
+console.log("Primera fruta eliminada:", primeraFruta); // Primera fruta eliminada: cereza
+console.log("Frutas después de eliminar la cereza:", frutas); // ["manzana", "banana", "naranja"]
+
+// 8. Encontrar el índice de un elemento en el arreglo con 'indexOf'
+var indiceNaranja = frutas.indexOf("naranja");
+console.log("Índice de la naranja:", indiceNaranja); // Índice de la naranja: 2
+
+// 9. Eliminar un elemento en una posición específica con 'splice'
+frutas.splice(1, 1); // Elimina 1 elemento a partir del índice 1
+console.log("Frutas después de eliminar la banana:", frutas); // ["manzana", "naranja"]
+
+// 10. Copiar un arreglo (shallow copy) con 'slice'
+var copiaFrutas = frutas.slice();
+console.log("Copia de frutas:", copiaFrutas); // ["manzana", "naranja"]
+
+// 11. Iterar a través de elementos del arreglo con 'for...of'
+for (var fruta of frutas) {
+    console.log("Fruta:", fruta);
+}
+
+// 12. Transformar un arreglo con 'map'
+var numeros = [1, 2, 3, 4, 5];
+var cuadrados = numeros.map(function(numero) {
+    return numero * numero;
+});
+console.log("Cuadrados de números:", cuadrados); // [1, 4, 9, 16, 25]
+
+// 13. Filtrar elementos de un arreglo con 'filter'
+var numerosPares = numeros.filter(function(numero) {
+    return numero % 2 === 0;
+});
+console.log("Números pares:", numerosPares); // [2, 4]
+
+// 14. Reducir un arreglo a un solo valor con 'reduce'
+var sumaTotal = numeros.reduce(function(acumulador, numero) {
+    return acumulador + numero;
+}, 0); // El 0 es el valor inicial del acumulador
+console.log("Suma total de números:", sumaTotal); // Suma total de números: 15
 ```
+Este ejemplo cubre los siguientes aspectos relacionados con arreglos en JavaScript:
+
+1. Declaración de arreglos.
+2. Acceso a elementos por índice.
+3. Uso de la propiedad `length`.
+4. Agregar elementos al final con `push`.
+5. Eliminar el último elemento con `pop`.
+6. Agregar elementos al principio con `unshift`.
+7. Eliminar el primer elemento con `shift`.
+8. Encontrar el índice de un elemento con `indexOf`.
+9. Eliminar elementos específicos con `splice`.
+10. Crear copias superficiales de arreglos con `slice`.
+11. Iteración a través de elementos con `for...of`.
+12. Transformación de arreglos con `map`.
+13. Filtrado de elementos con `filter`.
+14. Reducción de arreglos a un solo valor con `reduce`.
+
+Estos conceptos son esenciales para trabajar con arreglos en JavaScript y te permitirán manipular y procesar datos de manera efectiva.
 
 ### 7. Objetos
 
