@@ -1,29 +1,116 @@
 ### 1. Variables y Tipos de Datos
 
-JavaScript es un lenguaje de programación dinámico, lo que significa que no es necesario declarar explícitamente el tipo de una variable. Puedes declarar variables usando `var`, `let` o `const`.
+JavaScript es un lenguaje de programación dinámico que te permite declarar variables utilizando tres palabras clave: `var`, `let`, y `const`. Estas palabras clave tienen diferentes alcances y usos.
+
+#### `var`:
+- `var` se utiliza para declarar variables con ámbito de función o global.
+- Las variables declaradas con `var` pueden ser redeclaradas y actualizadas en cualquier lugar del ámbito de la función o el script.
+- No siguen el bloque de ámbito, lo que significa que pueden filtrarse fuera de las estructuras condicionales o bucles.
 
 ```javascript
-// Declaración de variables
-var numero = 10;     // Número entero
-var decimal = 3.14;  // Número decimal
-var texto = "Hola";  // Cadena de texto
-var booleano = true; // Valor booleano
+var edad = 30;
 ```
+
+#### `let`:
+- `let` se utiliza para declarar variables con ámbito de bloque.
+- Las variables declaradas con `let` no pueden ser redeclaradas en el mismo ámbito.
+- Siguen el ámbito de bloque y no se filtran fuera de las estructuras condicionales o bucles en los que se definen.
+
+```javascript
+let nombre = "Juan";
+```
+
+#### `const`:
+- `const` se utiliza para declarar variables con ámbito de bloque que no cambian su valor después de la asignación inicial.
+- Deben asignarse un valor al declararse y no pueden ser reasignadas.
+- Siguen el ámbito de bloque, al igual que `let`.
+
+```javascript
+const PI = 3.1416;
+```
+### 1.1 Scope de variables var, let y const
+
+**Scope de `var`:**
+```javascript
+function ejemploVar() {
+  if (true) {
+    var x = 10;
+  }
+  console.log(x); // x está disponible aquí
+}
+
+ejemploVar(); // Imprime 10
+console.log(x); // x está disponible fuera de la función
+```
+
+En el caso de `var`, la variable `x` declarada dentro del bloque `if` sigue siendo accesible fuera de ese bloque. Esto se debe a que las variables declaradas con `var` tienen un ámbito de función o ámbito global.
+
+**Scope de `let`:**
+```javascript
+function ejemploLet() {
+  if (true) {
+    let y = 20;
+  }
+  console.log(y); // y no está disponible aquí
+}
+
+ejemploLet(); // Genera un error: "y is not defined"
+```
+
+Con `let`, la variable `y` declarada dentro del bloque `if` tiene un ámbito de bloque, lo que significa que no se puede acceder a ella fuera del bloque. Esto evita fugas de variables no deseadas y es una práctica más segura.
+
+**Scope de `const`:**
+```javascript
+function ejemploConst() {
+  if (true) {
+    const z = 30;
+  }
+  console.log(z); // z no está disponible aquí
+}
+
+ejemploConst(); // Genera un error: "z is not defined"
+```
+
+El comportamiento de `const` es similar al de `let` en cuanto a ámbito de bloque. La variable `z` declarada dentro del bloque `if` no está disponible fuera de ese bloque.
+
+`var` tiene un ámbito de función o global, `let` y `const` tienen un ámbito de bloque. Usar `let` y `const` es preferible en la mayoría de los casos, ya que ayudan a evitar problemas relacionados con la reasignación no deseada y facilitan la escritura de código más seguro y predecible.
 
 ### 2. Operadores
 
 JavaScript admite varios operadores para realizar operaciones matemáticas, comparaciones y más.
 
 ```javascript
-var x = 5;
-var y = 3;
+var numero1 = 10;
+var numero2 = 5;
 
-var suma = x + y;     // Suma
-var resta = x - y;    // Resta
-var multiplicacion = x * y; // Multiplicación
-var division = x / y; // División
-var igualdad = x == y;  // Comprueba igualdad
-var mayorQue = x > y;   // Comprueba si x es mayor que y
+// Operadores aritméticos
+var suma = numero1 + numero2; // suma = 15
+var resta = numero1 - numero2; // resta = 5
+var multiplicacion = numero1 * numero2; // multiplicación = 50
+var division = numero1 / numero2; // división = 2
+var modulo = numero1 % numero2; // módulo = 0 (resto de la división)
+
+// Operadores de asignación
+var resultado = 0;
+resultado += numero1; // resultado = 10 (resultado = resultado + numero1)
+resultado -= numero2; // resultado = 5 (resultado = resultado - numero2)
+resultado *= numero1; // resultado = 50 (resultado = resultado * numero1)
+resultado /= numero2; // resultado = 10 (resultado = resultado / numero2)
+
+// Operadores de comparación
+var igualdad = numero1 == numero2; // igualdad = false
+var desigualdad = numero1 != numero2; // desigualdad = true
+var mayorQue = numero1 > numero2; // mayorQue = true
+var menorQue = numero1 < numero2; // menorQue = false
+var mayorIgual = numero1 >= numero2; // mayorIgual = true
+var menorIgual = numero1 <= numero2; // menorIgual = false
+
+// Operadores lógicos
+var condicion1 = true;
+var condicion2 = false;
+var yLogico = condicion1 && condicion2; // yLogico = false (AND lógico)
+var oLogico = condicion1 || condicion2; // oLogico = true (OR lógico)
+var noLogico = !condicion1; // noLogico = false (NOT lógico)
 ```
 
 ### 3. Condicionales
