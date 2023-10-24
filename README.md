@@ -2,7 +2,7 @@
 
 Este repositorio es una guía completa para aprender JavaScript, comenzando desde los fundamentos más básicos y avanzando hacia técnicas avanzadas. Ya sea que seas un principiante que recién comienza a programar o un desarrollador intermedio que busca perfeccionar sus habilidades, encontrarás lecciones y ejemplos prácticos para ayudarte a dominar JavaScript.
 
-Este trabajo, JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado (Dominando_JavaScript), se publica bajo una Licencia Creative Commons Creative Commons NoComercial por Matías Ignacio Paredes Márquez. Para obtener más información sobre la licencia visita: [[URL del trabajo original]](https://creativecommons.org/licenses/by-nc/4.0/legalcode).
+Este trabajo, JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado (Dominando_JavaScript), se publica bajo una Licencia Creative Commons Creative Commons NoComercial por Matías Ignacio Paredes Márquez. Para obtener más información sobre la licencia visita: [[Licencia]](https://creativecommons.org/licenses/by-nc/4.0/legalcode).
 
 ### 1. Variables y Tipos de Datos
 
