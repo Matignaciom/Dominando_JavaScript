@@ -466,102 +466,473 @@ Estos conceptos son esenciales para trabajar con arreglos en JavaScript y te per
 
 ### 7. Objetos
 
-Los objetos son estructuras de datos que almacenan propiedades y valores.
+En programación, los objetos son estructuras de datos que permiten organizar y almacenar información de una manera más compleja y significativa. Los objetos se utilizan para representar entidades del mundo real y sus atributos, y son una parte fundamental de la programación orientada a objetos (POO).
 
 ```javascript
+// 1. Declaración de un objeto
 var persona = {
-  nombre: "Juan",
-  edad: 30,
-  ciudad: "México"
+    nombre: "Juan",
+    edad: 30,
+    ciudad: "México"
 };
 
-console.log(persona.nombre); // Juan
-console.log(persona.edad);   // 30
+// 2. Acceso a propiedades del objeto por nombre
+console.log("Nombre de la persona:", persona.nombre); // Nombre de la persona: Juan
+console.log("Edad de la persona:", persona.edad); // Edad de la persona: 30
+
+// 3. Modificar propiedades del objeto
+persona.edad = 31;
+console.log("Nueva edad de la persona:", persona.edad); // Nueva edad de la persona: 31
+
+// 4. Agregar nuevas propiedades al objeto
+persona.trabajo = "programador";
+console.log("Trabajo de la persona:", persona.trabajo); // Trabajo de la persona: programador
+
+// 5. Eliminar propiedades del objeto con 'delete'
+delete persona.ciudad;
+console.log("Ciudad de la persona (eliminada):", persona.ciudad); // Ciudad de la persona (eliminada): undefined
+
+// 6. Verificar si una propiedad existe en el objeto
+var tieneTrabajo = "trabajo" in persona;
+console.log("¿La persona tiene trabajo?", tieneTrabajo); // ¿La persona tiene trabajo? true
+
+// 7. Iteración a través de propiedades del objeto con 'for...in'
+for (var propiedad in persona) {
+    console.log("Propiedad:", propiedad, "Valor:", persona[propiedad]);
+}
+
+// 8. Crear objetos con funciones constructoras
+function Producto(nombre, precio) {
+    this.nombre = nombre;
+    this.precio = precio;
+}
+
+var producto1 = new Producto("Camiseta", 20);
+console.log("Producto 1:", producto1);
+
+// 9. Agregar métodos a objetos
+producto1.mostrarInfo = function () {
+    console.log("Nombre:", this.nombre, "Precio:", this.precio);
+};
+
+producto1.mostrarInfo(); // Nombre: Camiseta Precio: 20
+
+// 10. Prototipos y herencia
+function Animal(nombre) {
+    this.nombre = nombre;
+}
+
+Animal.prototype.hablar = function (sonido) {
+    console.log(this.nombre + " hace " + sonido);
+};
+
+function Perro(nombre) {
+    Animal.call(this, nombre);
+}
+
+Perro.prototype = Object.create(Animal.prototype);
+
+var perro = new Perro("Firulais");
+perro.hablar("ladrido"); // Firulais hace ladrido
+
+// 11. Uso de objetos literales como estructuras de datos
+var libro = {
+    titulo: "La Odisea",
+    autor: "Homero",
+    publicado: 800 a.C.
+};
+
+console.log("Libro:", libro);
+
+// 12. Desestructuración de objetos (ES6+)
+var { titulo, autor } = libro;
+console.log("Título:", titulo, "Autor:", autor);
 ```
+Este ejemplo abarca los siguientes conceptos relacionados con objetos en JavaScript:
+
+1. Declaración de objetos.
+2. Acceso a propiedades del objeto por nombre.
+3. Modificación de propiedades del objeto.
+4. Agregar nuevas propiedades al objeto.
+5. Eliminación de propiedades del objeto con `delete`.
+6. Verificación de la existencia de propiedades en el objeto.
+7. Iteración a través de propiedades del objeto con `for...in`.
+8. Creación de objetos con funciones constructoras.
+9. Agregación de métodos a objetos.
+10. Uso de prototipos y herencia.
+11. Uso de objetos literales como estructuras de datos.
+12. Desestructuración de objetos (ES6+).
 
 ### 8. Arreglos Multidimensionales
 
 Los arreglos multidimensionales son arreglos que contienen otros arreglos, lo que permite representar datos en una estructura más compleja.
 
 ```javascript
+// 1. Declaración de un arreglo multidimensional (matriz)
 var matriz = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ];
 
-console.log(matriz[0][1]); // Acceder al valor 2
+// 2. Acceder a un valor en la matriz usando índices
+console.log("Valor en la fila 1, columna 2:", matriz[0][1]); // Valor en la fila 1, columna 2: 2
+
+// 3. Modificar un valor en la matriz
+matriz[2][2] = 10;
+console.log("Valor modificado en la fila 3, columna 3:", matriz[2][2]); // Valor modificado en la fila 3, columna 3: 10
+
+// 4. Iteración a través de una matriz multidimensional con bucles anidados
+console.log("Iteración a través de la matriz:");
+for (var fila = 0; fila < matriz.length; fila++) {
+    for (var columna = 0; columna < matriz[fila].length; columna++) {
+        console.log("Fila " + fila + ", Columna " + columna + ": " + matriz[fila][columna]);
+    }
+}
+
+// 5. Creación de una matriz bidimensional vacía
+var matrizVacia = new Array(3); // Crear un arreglo con 3 elementos (filas)
+for (var i = 0; i < 3; i++) {
+    matrizVacia[i] = new Array(3); // Cada elemento es un arreglo con 3 elementos (columnas)
+}
+
+matrizVacia[0][0] = 11;
+console.log("Matriz con valor en la fila 1, columna 1:", matrizVacia[0][0]);
+
+// 6. Matrices multidimensionales en objetos
+var datosEstudiantes = [
+    { nombre: "Juan", calificaciones: [90, 85, 88] },
+    { nombre: "María", calificaciones: [78, 92, 87] },
+    { nombre: "Pedro", calificaciones: [85, 90, 79] }
+];
+
+console.log("Calificación de María en la segunda materia:", datosEstudiantes[1].calificaciones[1]);
+
+// 7. Creación de una matriz multidimensional con bucle
+function crearMatriz(filas, columnas) {
+    var matriz = new Array(filas);
+    for (var i = 0; i < filas; i++) {
+        matriz[i] = new Array(columnas);
+    }
+    return matriz;
+}
+
+var nuevaMatriz = crearMatriz(2, 3);
+nuevaMatriz[0][1] = 42;
+console.log("Valor en la fila 1, columna 2 de la nueva matriz:", nuevaMatriz[0][1]);
 ```
+Este ejemplo cubre los siguientes conceptos relacionados con arreglos multidimensionales en JavaScript:
+
+1. Declaración de arreglos multidimensionales (matrices).
+2. Acceso y modificación de valores en una matriz.
+3. Iteración a través de una matriz multidimensional con bucles anidados.
+4. Creación de una matriz bidimensional vacía.
+5. Uso de matrices multidimensionales en objetos.
+6. Creación de una matriz multidimensional con un bucle. 
+
+Los arreglos multidimensionales son útiles cuando se necesita representar datos en estructuras más complejas, como tablas, matrices, sistemas de coordenadas, y en situaciones donde los datos están organizados en filas y columnas o en estructuras anidadas.
 
 ### 9. Métodos de Arreglos
 
 JavaScript proporciona una variedad de métodos incorporados para manipular arreglos, como `push`, `pop`, `shift`, `unshift`, `splice`, `forEach` y más.
 
 ```javascript
+// 1. Declaración de un arreglo
 var frutas = ["manzana", "banana", "naranja"];
-frutas.push("uva");   // Agregar al final
-frutas.pop();         // Eliminar del final
-frutas.shift();       // Eliminar del inicio
-frutas.unshift("pera"); // Agregar al inicio
+
+// 2. Agregar un elemento al final del arreglo con 'push'
+frutas.push("uva");
+console.log("Arreglo después de agregar uva:", frutas); // ["manzana", "banana", "naranja", "uva"]
+
+// 3. Eliminar el último elemento del arreglo con 'pop'
+var frutaEliminada = frutas.pop();
+console.log("Fruta eliminada:", frutaEliminada); // Fruta eliminada: uva
+console.log("Arreglo después de eliminar la uva:", frutas); // ["manzana", "banana", "naranja"]
+
+// 4. Eliminar el primer elemento del arreglo con 'shift'
+var primeraFruta = frutas.shift();
+console.log("Primera fruta eliminada:", primeraFruta); // Primera fruta eliminada: manzana
+console.log("Arreglo después de eliminar la manzana:", frutas); // ["banana", "naranja"]
+
+// 5. Agregar un elemento al principio del arreglo con 'unshift'
+frutas.unshift("pera");
+console.log("Arreglo después de agregar pera al principio:", frutas); // ["pera", "banana", "naranja"]
+
+// 6. Encontrar el índice de un elemento en el arreglo con 'indexOf'
+var indiceNaranja = frutas.indexOf("naranja");
+console.log("Índice de la naranja:", indiceNaranja); // Índice de la naranja: 2
+
+// 7. Eliminar un elemento en una posición específica con 'splice'
+frutas.splice(1, 1); // Elimina 1 elemento a partir del índice 1
+console.log("Arreglo después de eliminar la banana:", frutas); // ["pera", "naranja"]
+
+// 8. Iterar a través de elementos del arreglo con 'forEach'
+console.log("Iteración a través del arreglo:");
+frutas.forEach(function (fruta, indice) {
+    console.log("Índice " + indice + ": " + fruta);
+});
+
+// 9. Filtrar elementos de un arreglo con 'filter'
+var frutasFiltradas = frutas.filter(function (fruta) {
+    return fruta.length > 5;
+});
+console.log("Frutas con nombres largos:", frutasFiltradas); // ["naranja"]
+
+// 10. Transformar un arreglo con 'map'
+var frutasEnMayusculas = frutas.map(function (fruta) {
+    return fruta.toUpperCase();
+});
+console.log("Frutas en mayúsculas:", frutasEnMayusculas); // ["PERA", "NARANJA"]
+
+// 11. Reducir un arreglo a un solo valor con 'reduce'
+var sumaDeLongitudes = frutas.reduce(function (acumulador, fruta) {
+    return acumulador + fruta.length;
+}, 0); // El 0 es el valor inicial del acumulador
+console.log("Suma de longitudes de frutas:", sumaDeLongitudes); // Suma de longitudes de frutas: 12
 ```
+Este ejemplo cubre los siguientes métodos de arreglos en JavaScript:
+
+1. `push`: Agregar elementos al final del arreglo.
+2. `pop`: Eliminar el último elemento del arreglo.
+3. `shift`: Eliminar el primer elemento del arreglo.
+4. `unshift`: Agregar elementos al principio del arreglo.
+5. `indexOf`: Encontrar el índice de un elemento en el arreglo.
+6. `splice`: Eliminar elementos en una posición específica.
+7. `forEach`: Iterar a través de elementos del arreglo.
+8. `filter`: Filtrar elementos basados en una condición.
+9. `map`: Transformar elementos del arreglo.
+10. `reduce`: Reducir un arreglo a un solo valor.
+
+Estos métodos son herramientas poderosas para manipular y procesar arreglos en JavaScript, lo que te permite realizar una amplia variedad de tareas de forma eficiente.
 
 ### 10. Iteración de Objetos
 
 Puedes iterar sobre las propiedades de un objeto utilizando bucles `for...in` o métodos como `Object.keys`.
 
 ```javascript
+// 1. Declaración de un objeto
 var persona = {
-  nombre: "Juan",
-  edad: 30,
-  ciudad: "México"
+    nombre: "Juan",
+    edad: 30,
+    ciudad: "México"
 };
 
+// 2. Iteración a través de propiedades del objeto con 'for...in'
+console.log("Iteración a través de propiedades del objeto:");
 for (var propiedad in persona) {
-  console.log(propiedad + ": " + persona[propiedad]);
+    if (persona.hasOwnProperty(propiedad)) { // Verificar si la propiedad es propia (no heredada)
+        console.log(propiedad + ": " + persona[propiedad]);
+    }
+}
+
+// 3. Obtener un arreglo de las propiedades del objeto con 'Object.keys'
+var propiedades = Object.keys(persona);
+console.log("Propiedades del objeto como arreglo:", propiedades); // ["nombre", "edad", "ciudad"]
+
+// 4. Iteración a través de propiedades del objeto usando 'Object.keys'
+console.log("Iteración a través de propiedades con 'Object.keys':");
+propiedades.forEach(function (propiedad) {
+    console.log(propiedad + ": " + persona[propiedad]);
+});
+
+// 5. Iteración a través de propiedades y valores con 'Object.entries' (ES6+)
+console.log("Iteración a través de propiedades y valores con 'Object.entries' (ES6+):");
+for (var [clave, valor] of Object.entries(persona)) {
+    console.log(clave + ": " + valor);
+}
+
+// 6. Uso de métodos para verificar propiedades en un objeto
+console.log("¿El objeto tiene la propiedad 'nombre'?", persona.hasOwnProperty("nombre")); // true
+console.log("¿El objeto tiene la propiedad 'trabajo'?", persona.hasOwnProperty("trabajo")); // false
+
+// 7. Copia superficial de un objeto
+var copiaPersona = { ...persona }; // ES6+
+console.log("Copia superficial del objeto:", copiaPersona);
+
+// 8. Iteración a través de propiedades de un objeto heredado
+var personaHeredada = Object.create(persona);
+personaHeredada.trabajo = "programador";
+
+console.log("Iteración a través de propiedades heredadas:");
+for (var propiedad in personaHeredada) {
+    if (personaHeredada.hasOwnProperty(propiedad)) {
+        console.log(propiedad + ": " + personaHeredada[propiedad]);
+    }
 }
 ```
+Este ejemplo cubre los siguientes conceptos relacionados con la iteración de objetos en JavaScript:
+
+1. Declaración de un objeto.
+2. Iteración a través de propiedades del objeto con `for...in`.
+3. Uso de `hasOwnProperty` para verificar si una propiedad es propia del objeto.
+4. Obtención de un arreglo de las propiedades del objeto con `Object.keys`.
+5. Iteración a través de propiedades del objeto utilizando `Object.keys`.
+6. Iteración a través de propiedades y valores con `Object.entries` (ES6+).
+7. Uso de métodos para verificar la existencia de propiedades en un objeto.
+8. Copia superficial de un objeto (ES6+).
+9. Iteración a través de propiedades de un objeto heredado.
+
+Estos conceptos te permitirán trabajar con objetos de manera efectiva, ya sea para procesar propiedades propias o heredadas, iterar a través de ellas y manipular datos en tus aplicaciones.
 
 ### 11. Clases y Programación Orientada a Objetos
 
 JavaScript admite la programación orientada a objetos (POO). Puedes crear clases y objetos para organizar tu código de manera más estructurada.
 
 ```javascript
+// 1. Declaración de una clase 'Persona'
 class Persona {
-  constructor(nombre, edad) {
-    this.nombre = nombre;
-    this.edad = edad;
-  }
+    // 2. Constructor para inicializar propiedades
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
 
-  saludar() {
-    console.log(`Hola, soy ${this.nombre} y tengo ${this.edad} años.`);
-  }
+    // 3. Método de instancia para saludar
+    saludar() {
+        console.log(`Hola, soy ${this.nombre} y tengo ${this.edad} años.`);
+    }
 }
 
+// 4. Creación de objetos (instancias) de la clase 'Persona'
 var juan = new Persona("Juan", 25);
+var maria = new Persona("Maria", 30);
+
+// 5. Llamada a métodos de instancia
 juan.saludar(); // Hola, soy Juan y tengo 25 años.
+maria.saludar(); // Hola, soy Maria y tengo 30 años.
+
+// 6. Herencia: Creación de una subclase 'Estudiante' que extiende de 'Persona'
+class Estudiante extends Persona {
+    constructor(nombre, edad, curso) {
+        super(nombre, edad); // Llamar al constructor de la clase padre
+        this.curso = curso;
+    }
+
+    // 7. Sobrescribir un método de la clase padre
+    saludar() {
+        console.log(`Hola, soy ${this.nombre}, tengo ${this.edad} años y estudio ${this.curso}.`);
+    }
+}
+
+// 8. Creación de objetos de la subclase 'Estudiante'
+var estudiante1 = new Estudiante("Laura", 22, "Matemáticas");
+var estudiante2 = new Estudiante("Carlos", 28, "Historia");
+
+// 9. Llamada a métodos de instancia de la subclase
+estudiante1.saludar(); // Hola, soy Laura, tengo 22 años y estudio Matemáticas.
+estudiante2.saludar(); // Hola, soy Carlos, tengo 28 años y estudio Historia.
 ```
+Este ejemplo cubre los siguientes conceptos relacionados con clases y programación orientada a objetos (POO) en JavaScript:
+
+1. Declaración de una clase `Persona`.
+2. Uso de un constructor para inicializar propiedades en una clase.
+3. Definición de métodos de instancia en una clase.
+4. Creación de objetos (instancias) de la clase `Persona`.
+5. Llamada a métodos de instancia en objetos.
+6. Herencia: Creación de una subclase `Estudiante` que extiende de `Persona`.
+7. Sobrescritura de un método de la clase padre en la subclase.
+8. Creación de objetos de la subclase `Estudiante`.
+9. Llamada a métodos de instancia de la subclase.
+
+Estos conceptos son fundamentales para aplicar la programación orientada a objetos en JavaScript y crear estructuras de código más organizadas y reutilizables.
 
 ### 12. Manejo de Eventos
 
 JavaScript se utiliza ampliamente para manejar eventos en aplicaciones web. Puedes adjuntar funciones a eventos como clics de botón, cambios de entrada, etc.
 
-```javascript
-var boton = document.getElementById("miBoton");
-boton.addEventListener("click", function() {
-  alert("Hiciste clic en el botón.");
-});
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manejo de Eventos en JavaScript</title>
+</head>
+<body>
+    <button id="miBoton">Haz clic en mí</button>
+    <input type="text" id="entradaTexto">
+    <div id="resultado"></div>
+
+    <script>
+        // 1. Seleccionar un elemento del DOM por su ID
+        var boton = document.getElementById("miBoton");
+        var entradaTexto = document.getElementById("entradaTexto");
+        var resultado = document.getElementById("resultado");
+
+        // 2. Adjuntar un controlador de eventos a un elemento
+        boton.addEventListener("click", function() {
+            // 3. Manejar el evento (en este caso, mostrar una alerta)
+            alert("Hiciste clic en el botón.");
+        });
+
+        // 4. Adjuntar un controlador de eventos a un campo de entrada de texto
+        entradaTexto.addEventListener("input", function() {
+            // 5. Obtener el valor del campo de entrada de texto
+            var texto = entradaTexto.value;
+            
+            // 6. Actualizar el contenido de un elemento HTML
+            resultado.innerHTML = "Texto ingresado: " + texto;
+        });
+
+        // 7. Adjuntar un controlador de eventos para el evento 'mouseover'
+        boton.addEventListener("mouseover", function() {
+            boton.style.backgroundColor = "lightblue";
+        });
+
+        // 8. Adjuntar un controlador de eventos para el evento 'mouseout'
+        boton.addEventListener("mouseout", function() {
+            boton.style.backgroundColor = "";
+        });
+    </script>
+</body>
+</html>
 ```
+Este ejemplo cubre los siguientes conceptos relacionados con el manejo de eventos en JavaScript:
+
+1. Seleccionar un elemento del DOM por su ID.
+2. Adjuntar un controlador de eventos a un elemento.
+3. Manejar eventos, en este caso, mostrando una alerta al hacer clic en un botón.
+4. Adjuntar un controlador de eventos a un campo de entrada de texto.
+5. Obtener el valor del campo de entrada de texto.
+6. Actualizar el contenido de un elemento HTML con el valor del campo de entrada de texto.
+7. Adjuntar controladores de eventos para los eventos 'mouseover' (al pasar el ratón sobre el botón) y 'mouseout' (al quitar el ratón del botón).
+8. Cambiar el estilo de un elemento en respuesta a eventos ('mouseover' y 'mouseout' cambian el fondo del botón).
+
+Estos conceptos son fundamentales para interactuar con elementos del DOM y responder a eventos en aplicaciones web.
 
 ### 13. AJAX y Fetch
+
+AJAX (Asynchronous JavaScript and XML) y Fetch son dos tecnologías utilizadas en desarrollo web para realizar solicitudes de red asíncronas y obtener datos de servidores web. Aunque AJAX fue ampliamente utilizado en el pasado, Fetch es una API más moderna que ha simplificado la forma en que se realizan estas solicitudes.
 
 JavaScript permite realizar solicitudes de red asíncronas para obtener datos de servidores web. La API Fetch es comúnmente utilizada para este propósito.
 
 ```javascript
+// 1. Realizar una solicitud AJAX usando la API Fetch
 fetch('https://api.ejemplo.com/data')
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Error: ' + error));
+    .then(response => {
+        // 2. Verificar el estado de la respuesta HTTP
+        if (!response.ok) {
+            throw new Error('Error en la solicitud: ' + response.status);
+        }
+        // 3. Parsear la respuesta como JSON
+        return response.json();
+    })
+    .then(data => {
+        // 4. Utilizar los datos recibidos
+        console.log('Datos recibidos:', data);
+    })
+    .catch(error => {
+        // 5. Capturar errores de red o errores en la solicitud
+        console.error('Error: ' + error);
+    });
 ```
+Este ejemplo cubre los siguientes conceptos relacionados con AJAX y Fetch en JavaScript:
+
+1. Realizar una solicitud AJAX utilizando la API Fetch.
+2. Verificar el estado de la respuesta HTTP para detectar errores en la solicitud.
+3. Parsear la respuesta como JSON para trabajar con los datos recibidos.
+4. Utilizar los datos obtenidos en la respuesta de la solicitud.
+5. Capturar y manejar errores, ya sea errores de red o errores en la solicitud.
+
+El uso de Fetch es una técnica común en el desarrollo web para realizar solicitudes de red asíncronas y obtener datos de servidores web, lo que permite interactuar con APIs y recuperar información dinámica para su uso en aplicaciones web.
 
 Estos son algunos de los conceptos fundamentales que te ayudarán a comprender y utilizar JavaScript de manera efectiva. JavaScript es un lenguaje poderoso y versátil que se utiliza en una variedad de contextos, incluyendo desarrollo web, aplicaciones móviles y más. Practicar y trabajar en proyectos te ayudará a fortalecer tus habilidades en JavaScript.
 
