@@ -118,36 +118,144 @@ var noLogico = !condicion1; // noLogico = false (NOT lógico)
 Puedes utilizar instrucciones condicionales para tomar decisiones en tu código.
 
 ```javascript
-var edad = 18;
+// Función para determinar si un número es par o impar
+function esParOImpar(numero) {
+    // Verificar si la entrada no es un número
+    if (typeof numero !== 'number') {
+        throw new Error('La entrada no es un número.');
+    }
 
-if (edad >= 18) {
-  console.log("Eres mayor de edad");
-} else {
-  console.log("Eres menor de edad");
+    // Comprobar si el número es par o impar
+    if (numero % 2 === 0) {
+        return 'El número es par.';
+    } else {
+        return 'El número es impar.';
+    }
 }
+
+try {
+    var entrada = 42;
+    // Llamar a la función y capturar posibles errores
+    var resultado = esParOImpar(entrada);
+    console.log(resultado);
+} catch (error) {
+    console.error('Ocurrió un error: ' + error.message);
+}
+
+// Ejemplo de un switch statement para días de la semana
+var diaDeLaSemana = 'lunes';
+
+switch (diaDeLaSemana) {
+    case 'lunes':
+    case 'martes':
+    case 'miércoles':
+    case 'jueves':
+    case 'viernes':
+        console.log('Es un día laborable.');
+        break;
+    case 'sábado':
+    case 'domingo':
+        console.log('Es un fin de semana.');
+        break;
+    default:
+        console.log('Día no válido.');
+}
+
+// Uso de operador ternario para determinar si un número es positivo o negativo
+var numero = -5;
+var esPositivo = (numero >= 0) ? 'positivo' : 'negativo';
+console.log('El número es ' + esPositivo);
 ```
+Este código muestra cómo se puede verificar si un número es par o impar, tomar decisiones basadas en el día de la semana y cómo utilizar el operador ternario para determinar si un número es positivo o negativo. También incluye manejo de excepciones para tratar errores potenciales.
 
 ### 4. Bucles
 
 Los bucles permiten repetir un bloque de código varias veces.
 
-#### Bucle `for`:
-
 ```javascript
-for (var i = 0; i < 5; i++) {
-  console.log("Iteración " + i);
+// Ejemplo de bucle 'for' para imprimir números del 1 al 5
+for (let i = 1; i <= 5; i++) {
+    console.log('Número:', i);
 }
-```
 
-#### Bucle `while`:
-
-```javascript
-var contador = 0;
-while (contador < 3) {
-  console.log("Iteración " + contador);
-  contador++;
+// Ejemplo de bucle 'while' que imprime números del 1 al 5
+let j = 1;
+while (j <= 5) {
+    console.log('Número (while):', j);
+    j++;
 }
+
+// Ejemplo de bucle 'do...while' que imprime números del 1 al 5
+let k = 1;
+do {
+    console.log('Número (do...while):', k);
+    k++;
+} while (k <= 5);
+
+// Crear un array de números
+const numeros = [1, 2, 3, 4, 5];
+
+// Iterar a través de un array usando 'for...of'
+for (const numero of numeros) {
+    console.log('Número del array:', numero);
+}
+
+// Crear un objeto con propiedades
+const persona = {
+    nombre: 'Juan',
+    edad: 30,
+    ciudad: 'Ejemploville'
+};
+
+// Iterar a través de las propiedades de un objeto usando 'for...in'
+for (const propiedad in persona) {
+    console.log(`Propiedad: ${propiedad}, Valor: ${persona[propiedad]}`);
+}
+
+// Ejemplo de control de bucle con 'break' y 'continue'
+for (let x = 1; x <= 10; x++) {
+    if (x % 2 === 0) {
+        continue; // Salta a la próxima iteración si es par
+    }
+    console.log('Número impar:', x);
+    if (x === 7) {
+        break; // Sale del bucle cuando llega a 7
+    }
+}
+
+// Bucle 'for' anidado para crear una matriz bidimensional
+const matrizBidimensional = [];
+for (let fila = 0; fila < 3; fila++) {
+    matrizBidimensional[fila] = [];
+    for (let columna = 0; columna < 3; columna++) {
+        matrizBidimensional[fila][columna] = fila * 3 + columna + 1;
+    }
+}
+console.log('Matriz bidimensional:', matrizBidimensional);
+
+// Ejemplo de bucle que muestra cómo funciona la optimización de bucles
+const start = new Date().getTime();
+for (let i = 0; i < 1000000; i++) {
+    // Realiza una tarea simple 1,000,000 de veces
+}
+const end = new Date().getTime();
+console.log('Tiempo transcurrido:', end - start, 'milisegundos');
+
+// Bucle asincrónico (simulado con setTimeout)
+let contador = 0;
+function bucleAsincronico() {
+    setTimeout(() => {
+        console.log('Iteración asincrónica:', contador);
+        contador++;
+        if (contador < 5) {
+            bucleAsincronico(); // Llamada recursiva para simular iteraciones asincrónicas
+        }
+    }, 1000);
+}
+
+bucleAsincronico();
 ```
+Este ejemplo abarca los conceptos de bucles for, while, do...while, iteración a través de arrays y objetos, control de bucles con break y continue, bucles anidados, optimización de bucles y bucles asincrónicos. Cada parte del código está acompañada de comentarios explicativos para ayudarte a comprender los conceptos de bucles en JavaScript.
 
 ### 5. Funciones
 
