@@ -942,10 +942,6 @@ El uso de Fetch es una técnica común en el desarrollo web para realizar solici
 
 Estos son algunos de los conceptos fundamentales que te ayudarán a comprender y utilizar JavaScript de manera efectiva. JavaScript es un lenguaje poderoso y versátil que se utiliza en una variedad de contextos, incluyendo desarrollo web, aplicaciones móviles y más. Practicar y trabajar en proyectos te ayudará a fortalecer tus habilidades en JavaScript.
 
-## Licencia
-
-Este proyecto se distribuye bajo la licencia de uso personal. Puedes usar este proyecto con fines personales, pero no está permitido su uso comercial sin el permiso expreso del autor.
-
 ## Autor
 
 * **Matias Ignacio Paredes Marquez** - [Perfil de GitHub](https://github.com/Matignaciom)
@@ -957,3 +953,7 @@ Hecho con ❤️ por Matias Ignacio - https://github.com/Matignaciom
 ## Contacto
 
 Si tienes alguna pregunta o sugerencia sobre este proyecto, no dudes en ponerte en contacto conmigo a través de mat.ignaciom95@gmail.com.
+
+## Licencia
+
+Este proyecto se distribuye bajo la licencia de uso personal. Puedes usar este proyecto con fines personales, pero no está permitido su uso comercial sin el permiso expreso del autor.
