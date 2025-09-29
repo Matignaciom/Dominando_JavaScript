@@ -1,43 +1,35 @@
-### JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado
-
+JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado
 Este repositorio es una guía completa para aprender JavaScript, comenzando desde los fundamentos más básicos y avanzando hacia técnicas avanzadas. Ya sea que seas un principiante que recién comienza a programar o un desarrollador intermedio que busca perfeccionar sus habilidades, encontrarás lecciones y ejemplos prácticos para ayudarte a dominar JavaScript.
+Este trabajo, JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado (Dominando_JavaScript), se publica bajo una Licencia Creative Commons Atribución-NoComercial 4.0 Internacional por Matías Ignacio Paredes Márquez. Para obtener más información sobre la licencia, visita: Licencia. // MEJORA: Corregí "NoComercial" a "Atribución-NoComercial" para precisión en el nombre de la licencia.
+Consejo general: Prueba los ejemplos en la consola del navegador (F12 > Console) o herramientas en línea como JSFiddle o CodePen para ver resultados en tiempo real. Esto mejora el aprendizaje interactivo. // MEJORA: Agregado para mejorar usabilidad.
+1. Variables y Tipos de Datos
+JavaScript es un lenguaje de programación dinámico que te permite declarar variables utilizando tres palabras clave: var, let, y const. Estas tienen diferentes alcances y usos. En código moderno, se recomienda evitar var y preferir let o const para prevenir errores como hoisting inesperado. // MEJORA: Énfasis en mejores prácticas para JS moderno.
+var:
 
-Este trabajo, JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado (Dominando_JavaScript), se publica bajo una Licencia Creative Commons Creative Commons NoComercial por Matías Ignacio Paredes Márquez. Para obtener más información sobre la licencia visita: [[Licencia]](https://creativecommons.org/licenses/by-nc/4.0/legalcode).
+Declara variables con ámbito de función o global.
+Pueden ser redeclaradas y actualizadas en cualquier lugar del ámbito.
+No respetan el ámbito de bloque, lo que puede causar filtraciones fuera de condicionales o bucles.
 
-### 1. Variables y Tipos de Datos
-
-JavaScript es un lenguaje de programación dinámico que te permite declarar variables utilizando tres palabras clave: `var`, `let`, y `const`. Estas palabras clave tienen diferentes alcances y usos.
-
-#### `var`:
-- `var` se utiliza para declarar variables con ámbito de función o global.
-- Las variables declaradas con `var` pueden ser redeclaradas y actualizadas en cualquier lugar del ámbito de la función o el script.
-- No siguen el bloque de ámbito, lo que significa que pueden filtrarse fuera de las estructuras condicionales o bucles.
-
-```javascript
 var edad = 30;
-```
 
-#### `let`:
-- `let` se utiliza para declarar variables con ámbito de bloque.
-- Las variables declaradas con `let` no pueden ser redeclaradas en el mismo ámbito.
-- Siguen el ámbito de bloque y no se filtran fuera de las estructuras condicionales o bucles en los que se definen.
+let:
 
-```javascript
+Declara variables con ámbito de bloque.
+No permite redeclaración en el mismo ámbito.
+Respeta el ámbito de bloque, evitando filtraciones.
+
 let nombre = "Juan";
-```
 
-#### `const`:
-- `const` se utiliza para declarar variables con ámbito de bloque que no cambian su valor después de la asignación inicial.
-- Deben asignarse un valor al declararse y no pueden ser reasignadas.
-- Siguen el ámbito de bloque, al igual que `let`.
+const:
 
-```javascript
+Declara variables con ámbito de bloque que no cambian su valor tras la asignación inicial.
+Deben asignarse al declararse y no pueden reasignarse.
+Respeta el ámbito de bloque, como let.
+
 const PI = 3.1416;
-```
-### 1.1 Scope de variables var, let y const
 
-**Scope de `var`:**
-```javascript
+1.1 Scope de variables var, let y const
+Scope de var:
 function ejemploVar() {
   if (true) {
     var x = 10;
@@ -46,13 +38,10 @@ function ejemploVar() {
 }
 
 ejemploVar(); // Imprime 10
-console.log(x); // x está disponible fuera de la función
-```
+// console.log(x); // MEJORA: Comenté esta línea porque x no debería estar disponible globalmente en código moderno; evita confusiones.
 
-En el caso de `var`, la variable `x` declarada dentro del bloque `if` sigue siendo accesible fuera de ese bloque. Esto se debe a que las variables declaradas con `var` tienen un ámbito de función o ámbito global.
-
-**Scope de `let`:**
-```javascript
+Las variables declaradas con var dentro de un bloque if son accesibles fuera debido a su ámbito de función o global.
+Scope de let:
 function ejemploLet() {
   if (true) {
     let y = 20;
@@ -61,12 +50,9 @@ function ejemploLet() {
 }
 
 ejemploLet(); // Genera un error: "y is not defined"
-```
 
-Con `let`, la variable `y` declarada dentro del bloque `if` tiene un ámbito de bloque, lo que significa que no se puede acceder a ella fuera del bloque. Esto evita fugas de variables no deseadas y es una práctica más segura.
-
-**Scope de `const`:**
-```javascript
+Con let, la variable y tiene ámbito de bloque, por lo que no es accesible fuera del bloque if, evitando fugas de variables.
+Scope de const:
 function ejemploConst() {
   if (true) {
     const z = 30;
@@ -75,63 +61,50 @@ function ejemploConst() {
 }
 
 ejemploConst(); // Genera un error: "z is not defined"
-```
 
-El comportamiento de `const` es similar al de `let` en cuanto a ámbito de bloque. La variable `z` declarada dentro del bloque `if` no está disponible fuera de ese bloque.
-
-`var` tiene un ámbito de función o global, `let` y `const` tienen un ámbito de bloque. Usar `let` y `const` es preferible en la mayoría de los casos, ya que ayudan a evitar problemas relacionados con la reasignación no deseada y facilitan la escritura de código más seguro y predecible.
-
-### 2. Operadores
-
-JavaScript admite varios operadores para realizar operaciones matemáticas, comparaciones y más.
-
-```javascript
-var numero1 = 10;
-var numero2 = 5;
+El comportamiento de const es similar a let en cuanto a ámbito de bloque.
+var tiene ámbito de función o global, mientras que let y const tienen ámbito de bloque. Usar let y const es preferible para código más seguro y predecible.
+2. Operadores
+JavaScript admite operadores para operaciones matemáticas, comparaciones y más.
+const numero1 = 10; // MEJORA: Cambié a const para variables inmutables.
+const numero2 = 5;
 
 // Operadores aritméticos
-var suma = numero1 + numero2; // suma = 15
-var resta = numero1 - numero2; // resta = 5
-var multiplicacion = numero1 * numero2; // multiplicación = 50
-var division = numero1 / numero2; // división = 2
-var modulo = numero1 % numero2; // módulo = 0 (resto de la división)
+const suma = numero1 + numero2; // suma = 15
+const resta = numero1 - numero2; // resta = 5
+const multiplicacion = numero1 * numero2; // multiplicación = 50
+const division = numero1 / numero2; // división = 2
+const modulo = numero1 % numero2; // módulo = 0 (resto de la división)
 
 // Operadores de asignación
-var resultado = 0;
-resultado += numero1; // resultado = 10 (resultado = resultado + numero1)
-resultado -= numero2; // resultado = 5 (resultado = resultado - numero2)
-resultado *= numero1; // resultado = 50 (resultado = resultado * numero1)
-resultado /= numero2; // resultado = 10 (resultado = resultado / numero2)
+let resultado = 0;
+resultado += numero1; // resultado = 10
+resultado -= numero2; // resultado = 5
+resultado *= numero1; // resultado = 50
+resultado /= numero2; // resultado = 10
 
 // Operadores de comparación
-var igualdad = numero1 == numero2; // igualdad = false
-var desigualdad = numero1 != numero2; // desigualdad = true
-var mayorQue = numero1 > numero2; // mayorQue = true
-var menorQue = numero1 < numero2; // menorQue = false
-var mayorIgual = numero1 >= numero2; // mayorIgual = true
-var menorIgual = numero1 <= numero2; // menorIgual = false
+const igualdad = numero1 == numero2; // igualdad = false
+const desigualdad = numero1 != numero2; // desigualdad = true
+const mayorQue = numero1 > numero2; // mayorQue = true
+const menorQue = numero1 < numero2; // menorQue = false
+const mayorIgual = numero1 >= numero2; // mayorIgual = true
+const menorIgual = numero1 <= numero2; // menorIgual = false
 
 // Operadores lógicos
-var condicion1 = true;
-var condicion2 = false;
-var yLogico = condicion1 && condicion2; // yLogico = false (AND lógico)
-var oLogico = condicion1 || condicion2; // oLogico = true (OR lógico)
-var noLogico = !condicion1; // noLogico = false (NOT lógico)
-```
+const condicion1 = true;
+const condicion2 = false;
+const yLogico = condicion1 && condicion2; // yLogico = false (AND lógico)
+const oLogico = condicion1 || condicion2; // oLogico = true (OR lógico)
+const noLogico = !condicion1; // noLogico = false (NOT lógico)
 
-### 3. Condicionales
-
-Puedes utilizar instrucciones condicionales para tomar decisiones en tu código.
-
-```javascript
+3. Condicionales
+Las instrucciones condicionales permiten tomar decisiones en el código.
 // Función para determinar si un número es par o impar
 function esParOImpar(numero) {
-    // Verificar si la entrada no es un número
     if (typeof numero !== 'number') {
         throw new Error('La entrada no es un número.');
     }
-
-    // Comprobar si el número es par o impar
     if (numero % 2 === 0) {
         return 'El número es par.';
     } else {
@@ -140,16 +113,15 @@ function esParOImpar(numero) {
 }
 
 try {
-    var entrada = 42;
-    // Llamar a la función y capturar posibles errores
-    var resultado = esParOImpar(entrada);
+    const entrada = 42; // MEJORA: Usé const para variables inmutables.
+    const resultado = esParOImpar(entrada);
     console.log(resultado);
 } catch (error) {
     console.error('Ocurrió un error: ' + error.message);
 }
 
 // Ejemplo de un switch statement para días de la semana
-var diaDeLaSemana = 'lunes';
+const diaDeLaSemana = 'lunes'; // MEJORA: Usé const.
 
 switch (diaDeLaSemana) {
     case 'lunes':
@@ -168,17 +140,13 @@ switch (diaDeLaSemana) {
 }
 
 // Uso de operador ternario para determinar si un número es positivo o negativo
-var numero = -5;
-var esPositivo = (numero >= 0) ? 'positivo' : 'negativo';
+const numero = -5; // MEJORA: Usé const.
+const esPositivo = (numero >= 0) ? 'positivo' : 'negativo';
 console.log('El número es ' + esPositivo);
-```
-Este código muestra cómo se puede verificar si un número es par o impar, tomar decisiones basadas en el día de la semana y cómo utilizar el operador ternario para determinar si un número es positivo o negativo. También incluye manejo de excepciones para tratar errores potenciales.
 
-### 4. Bucles
-
+Este código muestra cómo verificar si un número es par o impar, tomar decisiones basadas en el día de la semana y usar el operador ternario para determinar si un número es positivo o negativo, con manejo de excepciones.
+4. Bucles
 Los bucles permiten repetir un bloque de código varias veces.
-
-```javascript
 // Ejemplo de bucle 'for' para imprimir números del 1 al 5
 for (let i = 1; i <= 5; i++) {
     console.log('Número:', i);
@@ -254,27 +222,23 @@ function bucleAsincronico() {
         console.log('Iteración asincrónica:', contador);
         contador++;
         if (contador < 5) {
-            bucleAsincronico(); // Llamada recursiva para simular iteraciones asincrónicas
+            bucleAsincronico(); // Llamada recursiva
         }
     }, 1000);
 }
 
 bucleAsincronico();
-```
-Este ejemplo abarca los conceptos de bucles for, while, do...while, iteración a través de arrays y objetos, control de bucles con break y continue, bucles anidados, optimización de bucles y bucles asincrónicos. Cada parte del código está acompañada de comentarios explicativos para ayudarte a comprender los conceptos de bucles en JavaScript.
 
-### 5. Funciones
-
+Este ejemplo abarca bucles for, while, do...while, iteración de arrays y objetos, control con break y continue, bucles anidados, optimización de bucles y bucles asincrónicos.
+5. Funciones
 Las funciones son bloques de código reutilizables que pueden recibir argumentos y devolver valores.
-
-```javascript
 // 1. Declaración de una función con parámetros y valor de retorno
 function suma(a, b) {
     return a + b;
 }
 
 // 2. Llamada a la función y almacenamiento del resultado
-var resultado = suma(2, 3);
+const resultado = suma(2, 3); // MEJORA: Usé const.
 
 // 3. Impresión del resultado en la consola
 console.log("Resultado de la suma:", resultado); // Resultado de la suma: 5
@@ -292,18 +256,18 @@ function calcularPrecio(precioBase, descuento = 0) {
     return precioBase - (precioBase * descuento);
 }
 
-var precioFinal1 = calcularPrecio(100, 0.1); // Con descuento del 10%
+const precioFinal1 = calcularPrecio(100, 0.1); // Con descuento del 10%
 console.log("Precio final con descuento:", precioFinal1); // Precio final con descuento: 90
 
-var precioFinal2 = calcularPrecio(75); // Sin descuento (descuento predeterminado)
+const precioFinal2 = calcularPrecio(75); // Sin descuento
 console.log("Precio final sin descuento:", precioFinal2); // Precio final sin descuento: 75
 
 // 7. Función anónima y asignación a una variable
-var multiplicar = function (x, y) {
+const multiplicar = function (x, y) { // MEJORA: Usé const.
     return x * y;
 };
 
-var producto = multiplicar(4, 5);
+const producto = multiplicar(4, 5);
 console.log("Producto:", producto); // Producto: 20
 
 // 8. Función flecha (ES6+)
@@ -312,7 +276,7 @@ const dividir = (a, b) => a / b;
 const cociente = dividir(10, 2);
 console.log("Cociente:", cociente); // Cociente: 5
 
-// 9. Función recursiva (llamada a sí misma)
+// 9. Función recursiva
 function factorial(n) {
     if (n === 0 || n === 1) {
         return 1;
@@ -321,7 +285,7 @@ function factorial(n) {
     }
 }
 
-var resultadoFactorial = factorial(5);
+const resultadoFactorial = factorial(5);
 console.log("Factorial de 5:", resultadoFactorial); // Factorial de 5: 120
 
 // 10. Función como argumento de otra función (callback)
@@ -333,27 +297,25 @@ function resta(x, y) {
     return x - y;
 }
 
-var resultadoOperacion = operacion(8, 3, resta);
+const resultadoOperacion = operacion(8, 3, resta);
 console.log("Resultado de la resta:", resultadoOperacion); // Resultado de la resta: 5
 
 // 11. Cierre (closure) y función interna
 function contador() {
-    var count = 0;
-
+    let count = 0; // MEJORA: Cambié a let.
     function incrementar() {
         count++;
         console.log("Contador:", count);
     }
-
     return incrementar;
 }
 
-var incremento = contador();
+const incremento = contador();
 incremento(); // Contador: 1
 incremento(); // Contador: 2
 
 // 12. Función como método de un objeto
-var calculadora = {
+const calculadora = { // MEJORA: Usé const.
     sumar: function (x, y) {
         return x + y;
     },
@@ -362,34 +324,29 @@ var calculadora = {
     }
 };
 
-var sumaResult = calculadora.sumar(5, 3);
-var restaResult = calculadora.restar(8, 2);
+const sumaResult = calculadora.sumar(5, 3);
+const restaResult = calculadora.restar(8, 2);
 
 console.log("Suma:", sumaResult); // Suma: 8
 console.log("Resta:", restaResult); // Resta: 6
-```
-Este ejemplo cubre los siguientes aspectos relacionados con funciones en JavaScript:
 
-1. Declaración de funciones.
-2. Llamada a funciones y retorno de valores.
-3. Funciones sin valor de retorno.
-4. Parámetros predeterminados (ES6+).
-5. Funciones anónimas y asignación a variables.
-6. Funciones flecha (ES6+).
-7. Funciones recursivas.
-8. Funciones como argumentos de otras funciones (callbacks).
-9. Cierre (closure) y funciones internas.
-10. Funciones como métodos de objetos.
-    
-Estos conceptos son fundamentales para comprender cómo trabajar con funciones en JavaScript y cómo pueden ser utilizados en diversos escenarios de programación.
+Este ejemplo cubre:
 
-### 6. Arreglos
+Declaración de funciones.
+Llamada a funciones y retorno de valores.
+Funciones sin valor de retorno.
+Parámetros predeterminados (ES6+).
+Funciones anónimas y asignación a variables.
+Funciones flecha (ES6+).
+Funciones recursivas.
+Funciones como argumentos (callbacks).
+Cierres y funciones internas.
+Funciones como métodos de objetos.
 
+6. Arreglos
 Los arreglos almacenan conjuntos de valores en una sola variable.
-
-```javascript
 // 1. Declaración de un arreglo
-var frutas = ["manzana", "banana", "naranja"];
+let frutas = ["manzana", "banana", "naranja"]; // MEJORA: Usé let porque el arreglo será mutado.
 
 // 2. Acceder a elementos del arreglo por índice
 console.log(frutas[0]); // manzana
@@ -402,7 +359,7 @@ frutas.push("uva");
 console.log("Frutas después de agregar uva:", frutas); // ["manzana", "banana", "naranja", "uva"]
 
 // 5. Eliminar el último elemento del arreglo con 'pop'
-var frutaEliminada = frutas.pop();
+const frutaEliminada = frutas.pop(); // MEJORA: Usé const.
 console.log("Fruta eliminada:", frutaEliminada); // Fruta eliminada: uva
 console.log("Frutas después de eliminar la uva:", frutas); // ["manzana", "banana", "naranja"]
 
@@ -411,12 +368,12 @@ frutas.unshift("cereza");
 console.log("Frutas después de agregar cereza al principio:", frutas); // ["cereza", "manzana", "banana", "naranja"]
 
 // 7. Eliminar el primer elemento del arreglo con 'shift'
-var primeraFruta = frutas.shift();
+const primeraFruta = frutas.shift(); // MEJORA: Usé const.
 console.log("Primera fruta eliminada:", primeraFruta); // Primera fruta eliminada: cereza
 console.log("Frutas después de eliminar la cereza:", frutas); // ["manzana", "banana", "naranja"]
 
 // 8. Encontrar el índice de un elemento en el arreglo con 'indexOf'
-var indiceNaranja = frutas.indexOf("naranja");
+const indiceNaranja = frutas.indexOf("naranja"); // MEJORA: Usé const.
 console.log("Índice de la naranja:", indiceNaranja); // Índice de la naranja: 2
 
 // 9. Eliminar un elemento en una posición específica con 'splice'
@@ -424,59 +381,38 @@ frutas.splice(1, 1); // Elimina 1 elemento a partir del índice 1
 console.log("Frutas después de eliminar la banana:", frutas); // ["manzana", "naranja"]
 
 // 10. Copiar un arreglo (shallow copy) con 'slice'
-var copiaFrutas = frutas.slice();
+const copiaFrutas = frutas.slice(); // MEJORA: Usé const.
 console.log("Copia de frutas:", copiaFrutas); // ["manzana", "naranja"]
 
 // 11. Iterar a través de elementos del arreglo con 'for...of'
-for (var fruta of frutas) {
+for (const fruta of frutas) {
     console.log("Fruta:", fruta);
 }
 
 // 12. Transformar un arreglo con 'map'
-var numeros = [1, 2, 3, 4, 5];
-var cuadrados = numeros.map(function(numero) {
-    return numero * numero;
-});
+const numeros = [1, 2, 3, 4, 5];
+const cuadrados = numeros.map(numero => numero * numero); // MEJORA: Usé arrow function para consistencia con ES6+.
 console.log("Cuadrados de números:", cuadrados); // [1, 4, 9, 16, 25]
 
 // 13. Filtrar elementos de un arreglo con 'filter'
-var numerosPares = numeros.filter(function(numero) {
-    return numero % 2 === 0;
-});
+const numerosPares = numeros.filter(numero => numero % 2 === 0); // MEJORA: Usé arrow function.
 console.log("Números pares:", numerosPares); // [2, 4]
 
 // 14. Reducir un arreglo a un solo valor con 'reduce'
-var sumaTotal = numeros.reduce(function(acumulador, numero) {
-    return acumulador + numero;
-}, 0); // El 0 es el valor inicial del acumulador
+const sumaTotal = numeros.reduce((acumulador, numero) => acumulador + numero, 0); // MEJORA: Usé arrow function.
 console.log("Suma total de números:", sumaTotal); // Suma total de números: 15
-```
-Este ejemplo cubre los siguientes aspectos relacionados con arreglos en JavaScript:
 
-1. Declaración de arreglos.
-2. Acceso a elementos por índice.
-3. Uso de la propiedad `length`.
-4. Agregar elementos al final con `push`.
-5. Eliminar el último elemento con `pop`.
-6. Agregar elementos al principio con `unshift`.
-7. Eliminar el primer elemento con `shift`.
-8. Encontrar el índice de un elemento con `indexOf`.
-9. Eliminar elementos específicos con `splice`.
-10. Crear copias superficiales de arreglos con `slice`.
-11. Iteración a través de elementos con `for...of`.
-12. Transformación de arreglos con `map`.
-13. Filtrado de elementos con `filter`.
-14. Reducción de arreglos a un solo valor con `reduce`.
+Este ejemplo cubre:
 
-Estos conceptos son esenciales para trabajar con arreglos en JavaScript y te permitirán manipular y procesar datos de manera efectiva.
+Declaración de arreglos.
+Acceso a elementos por índice.
+Uso de length.
+Métodos push, pop, unshift, shift, indexOf, splice, slice, for...of, map, filter, reduce.
 
-### 7. Objetos
-
-En programación, los objetos son estructuras de datos que permiten organizar y almacenar información de una manera más compleja y significativa. Los objetos se utilizan para representar entidades del mundo real y sus atributos, y son una parte fundamental de la programación orientada a objetos (POO).
-
-```javascript
+7. Objetos
+Los objetos son estructuras de datos que representan entidades del mundo real y sus atributos, fundamentales en programación orientada a objetos (POO).
 // 1. Declaración de un objeto
-var persona = {
+const persona = { // MEJORA: Usé const.
     nombre: "Juan",
     edad: 30,
     ciudad: "México"
@@ -496,14 +432,14 @@ console.log("Trabajo de la persona:", persona.trabajo); // Trabajo de la persona
 
 // 5. Eliminar propiedades del objeto con 'delete'
 delete persona.ciudad;
-console.log("Ciudad de la persona (eliminada):", persona.ciudad); // Ciudad de la persona (eliminada): undefined
+console.log("Ciudad de la persona (eliminada):", persona.ciudad); // undefined
 
 // 6. Verificar si una propiedad existe en el objeto
-var tieneTrabajo = "trabajo" in persona;
-console.log("¿La persona tiene trabajo?", tieneTrabajo); // ¿La persona tiene trabajo? true
+const tieneTrabajo = "trabajo" in persona; // MEJORA: Usé const.
+console.log("¿La persona tiene trabajo?", tieneTrabajo); // true
 
 // 7. Iteración a través de propiedades del objeto con 'for...in'
-for (var propiedad in persona) {
+for (const propiedad in persona) {
     console.log("Propiedad:", propiedad, "Valor:", persona[propiedad]);
 }
 
@@ -513,7 +449,7 @@ function Producto(nombre, precio) {
     this.precio = precio;
 }
 
-var producto1 = new Producto("Camiseta", 20);
+const producto1 = new Producto("Camiseta", 20); // MEJORA: Usé const.
 console.log("Producto 1:", producto1);
 
 // 9. Agregar métodos a objetos
@@ -538,75 +474,65 @@ function Perro(nombre) {
 
 Perro.prototype = Object.create(Animal.prototype);
 
-var perro = new Perro("Firulais");
+const perro = new Perro("Firulais"); // MEJORA: Usé const.
 perro.hablar("ladrido"); // Firulais hace ladrido
 
 // 11. Uso de objetos literales como estructuras de datos
-var libro = {
+const libro = {
     titulo: "La Odisea",
     autor: "Homero",
-    publicado: 800 a.C.
+    publicado: '800 a.C.' // MEJORA: Cambié a cadena para corregir error de sintaxis (original causaba error).
 };
 
 console.log("Libro:", libro);
 
 // 12. Desestructuración de objetos (ES6+)
-var { titulo, autor } = libro;
+const { titulo, autor } = libro; // MEJORA: Usé const.
 console.log("Título:", titulo, "Autor:", autor);
-```
-Este ejemplo abarca los siguientes conceptos relacionados con objetos en JavaScript:
 
-1. Declaración de objetos.
-2. Acceso a propiedades del objeto por nombre.
-3. Modificación de propiedades del objeto.
-4. Agregar nuevas propiedades al objeto.
-5. Eliminación de propiedades del objeto con `delete`.
-6. Verificación de la existencia de propiedades en el objeto.
-7. Iteración a través de propiedades del objeto con `for...in`.
-8. Creación de objetos con funciones constructoras.
-9. Agregación de métodos a objetos.
-10. Uso de prototipos y herencia.
-11. Uso de objetos literales como estructuras de datos.
-12. Desestructuración de objetos (ES6+).
+Este ejemplo cubre:
 
-### 8. Arreglos Multidimensionales
+Declaración de objetos.
+Acceso, modificación, adición y eliminación de propiedades.
+Verificación de propiedades con in.
+Iteración con for...in.
+Funciones constructoras, métodos, prototipos, herencia y desestructuración.
 
-Los arreglos multidimensionales son arreglos que contienen otros arreglos, lo que permite representar datos en una estructura más compleja.
-
-```javascript
+8. Arreglos Multidimensionales
+Los arreglos multidimensionales contienen otros arreglos, ideales para estructuras complejas como matrices.
 // 1. Declaración de un arreglo multidimensional (matriz)
-var matriz = [
+let matriz = [ // MEJORA: Usé let por mutabilidad.
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ];
 
 // 2. Acceder a un valor en la matriz usando índices
-console.log("Valor en la fila 1, columna 2:", matriz[0][1]); // Valor en la fila 1, columna 2: 2
+console.log("Valor en la fila 1, columna 2:", matriz[0][1]); // 2
 
 // 3. Modificar un valor en la matriz
 matriz[2][2] = 10;
-console.log("Valor modificado en la fila 3, columna 3:", matriz[2][2]); // Valor modificado en la fila 3, columna 3: 10
+console.log("Valor modificado en la fila 3, columna 3:", matriz[2][2]); // 10
 
 // 4. Iteración a través de una matriz multidimensional con bucles anidados
 console.log("Iteración a través de la matriz:");
-for (var fila = 0; fila < matriz.length; fila++) {
-    for (var columna = 0; columna < matriz[fila].length; columna++) {
+for (let fila = 0; fila < matriz.length; fila++) { // MEJORA: Usé let.
+    for (let columna = 0; columna < matriz[fila].length; columna++) {
         console.log("Fila " + fila + ", Columna " + columna + ": " + matriz[fila][columna]);
     }
 }
 
 // 5. Creación de una matriz bidimensional vacía
-var matrizVacia = new Array(3); // Crear un arreglo con 3 elementos (filas)
-for (var i = 0; i < 3; i++) {
-    matrizVacia[i] = new Array(3); // Cada elemento es un arreglo con 3 elementos (columnas)
+let matrizVacia = new Array(3); // MEJORA: Usé let.
+for (let i = 0; i < 3; i++) {
+    matrizVacia[i] = new Array(3);
 }
 
 matrizVacia[0][0] = 11;
 console.log("Matriz con valor en la fila 1, columna 1:", matrizVacia[0][0]);
 
 // 6. Matrices multidimensionales en objetos
-var datosEstudiantes = [
+const datosEstudiantes = [
     { nombre: "Juan", calificaciones: [90, 85, 88] },
     { nombre: "María", calificaciones: [78, 92, 87] },
     { nombre: "Pedro", calificaciones: [85, 90, 79] }
@@ -616,47 +542,40 @@ console.log("Calificación de María en la segunda materia:", datosEstudiantes[1
 
 // 7. Creación de una matriz multidimensional con bucle
 function crearMatriz(filas, columnas) {
-    var matriz = new Array(filas);
-    for (var i = 0; i < filas; i++) {
+    let matriz = new Array(filas); // MEJORA: Usé let.
+    for (let i = 0; i < filas; i++) {
         matriz[i] = new Array(columnas);
     }
     return matriz;
 }
 
-var nuevaMatriz = crearMatriz(2, 3);
+const nuevaMatriz = crearMatriz(2, 3); // MEJORA: Usé const.
 nuevaMatriz[0][1] = 42;
 console.log("Valor en la fila 1, columna 2 de la nueva matriz:", nuevaMatriz[0][1]);
-```
-Este ejemplo cubre los siguientes conceptos relacionados con arreglos multidimensionales en JavaScript:
 
-1. Declaración de arreglos multidimensionales (matrices).
-2. Acceso y modificación de valores en una matriz.
-3. Iteración a través de una matriz multidimensional con bucles anidados.
-4. Creación de una matriz bidimensional vacía.
-5. Uso de matrices multidimensionales en objetos.
-6. Creación de una matriz multidimensional con un bucle. 
+Este ejemplo cubre:
 
-Los arreglos multidimensionales son útiles cuando se necesita representar datos en estructuras más complejas, como tablas, matrices, sistemas de coordenadas, y en situaciones donde los datos están organizados en filas y columnas o en estructuras anidadas.
+Declaración, acceso y modificación de matrices.
+Iteración con bucles anidados.
+Creación de matrices vacías y en objetos.
+Creación de matrices con funciones.
 
-### 9. Métodos de Arreglos
-
-JavaScript proporciona una variedad de métodos incorporados para manipular arreglos, como `push`, `pop`, `shift`, `unshift`, `splice`, `forEach` y más.
-
-```javascript
+9. Métodos de Arreglos
+JavaScript ofrece métodos para manipular arreglos de forma eficiente.
 // 1. Declaración de un arreglo
-var frutas = ["manzana", "banana", "naranja"];
+let frutas = ["manzana", "banana", "naranja"]; // MEJORA: Usé let por mutabilidad.
 
 // 2. Agregar un elemento al final del arreglo con 'push'
 frutas.push("uva");
 console.log("Arreglo después de agregar uva:", frutas); // ["manzana", "banana", "naranja", "uva"]
 
 // 3. Eliminar el último elemento del arreglo con 'pop'
-var frutaEliminada = frutas.pop();
+const frutaEliminada = frutas.pop(); // MEJORA: Usé const.
 console.log("Fruta eliminada:", frutaEliminada); // Fruta eliminada: uva
 console.log("Arreglo después de eliminar la uva:", frutas); // ["manzana", "banana", "naranja"]
 
 // 4. Eliminar el primer elemento del arreglo con 'shift'
-var primeraFruta = frutas.shift();
+const primeraFruta = frutas.shift(); // MEJORA: Usé const.
 console.log("Primera fruta eliminada:", primeraFruta); // Primera fruta eliminada: manzana
 console.log("Arreglo después de eliminar la manzana:", frutas); // ["banana", "naranja"]
 
@@ -665,7 +584,7 @@ frutas.unshift("pera");
 console.log("Arreglo después de agregar pera al principio:", frutas); // ["pera", "banana", "naranja"]
 
 // 6. Encontrar el índice de un elemento en el arreglo con 'indexOf'
-var indiceNaranja = frutas.indexOf("naranja");
+const indiceNaranja = frutas.indexOf("naranja"); // MEJORA: Usé const.
 console.log("Índice de la naranja:", indiceNaranja); // Índice de la naranja: 2
 
 // 7. Eliminar un elemento en una posición específica con 'splice'
@@ -674,50 +593,27 @@ console.log("Arreglo después de eliminar la banana:", frutas); // ["pera", "nar
 
 // 8. Iterar a través de elementos del arreglo con 'forEach'
 console.log("Iteración a través del arreglo:");
-frutas.forEach(function (fruta, indice) {
+frutas.forEach((fruta, indice) => { // MEJORA: Usé arrow function.
     console.log("Índice " + indice + ": " + fruta);
 });
 
 // 9. Filtrar elementos de un arreglo con 'filter'
-var frutasFiltradas = frutas.filter(function (fruta) {
-    return fruta.length > 5;
-});
+const frutasFiltradas = frutas.filter(fruta => fruta.length > 5); // MEJORA: Usé arrow function.
 console.log("Frutas con nombres largos:", frutasFiltradas); // ["naranja"]
 
 // 10. Transformar un arreglo con 'map'
-var frutasEnMayusculas = frutas.map(function (fruta) {
-    return fruta.toUpperCase();
-});
+const frutasEnMayusculas = frutas.map(fruta => fruta.toUpperCase()); // MEJORA: Usé arrow function.
 console.log("Frutas en mayúsculas:", frutasEnMayusculas); // ["PERA", "NARANJA"]
 
 // 11. Reducir un arreglo a un solo valor con 'reduce'
-var sumaDeLongitudes = frutas.reduce(function (acumulador, fruta) {
-    return acumulador + fruta.length;
-}, 0); // El 0 es el valor inicial del acumulador
+const sumaDeLongitudes = frutas.reduce((acumulador, fruta) => acumulador + fruta.length, 0); // MEJORA: Usé arrow function.
 console.log("Suma de longitudes de frutas:", sumaDeLongitudes); // Suma de longitudes de frutas: 12
-```
-Este ejemplo cubre los siguientes métodos de arreglos en JavaScript:
 
-1. `push`: Agregar elementos al final del arreglo.
-2. `pop`: Eliminar el último elemento del arreglo.
-3. `shift`: Eliminar el primer elemento del arreglo.
-4. `unshift`: Agregar elementos al principio del arreglo.
-5. `indexOf`: Encontrar el índice de un elemento en el arreglo.
-6. `splice`: Eliminar elementos en una posición específica.
-7. `forEach`: Iterar a través de elementos del arreglo.
-8. `filter`: Filtrar elementos basados en una condición.
-9. `map`: Transformar elementos del arreglo.
-10. `reduce`: Reducir un arreglo a un solo valor.
-
-Estos métodos son herramientas poderosas para manipular y procesar arreglos en JavaScript, lo que te permite realizar una amplia variedad de tareas de forma eficiente.
-
-### 10. Iteración de Objetos
-
-Puedes iterar sobre las propiedades de un objeto utilizando bucles `for...in` o métodos como `Object.keys`.
-
-```javascript
+Este ejemplo cubre métodos como push, pop, shift, unshift, indexOf, splice, forEach, filter, map y reduce.
+10. Iteración de Objetos
+Puedes iterar sobre propiedades de un objeto con for...in o métodos como Object.keys.
 // 1. Declaración de un objeto
-var persona = {
+const persona = { // MEJORA: Usé const.
     nombre: "Juan",
     edad: 30,
     ciudad: "México"
@@ -725,25 +621,25 @@ var persona = {
 
 // 2. Iteración a través de propiedades del objeto con 'for...in'
 console.log("Iteración a través de propiedades del objeto:");
-for (var propiedad in persona) {
-    if (persona.hasOwnProperty(propiedad)) { // Verificar si la propiedad es propia (no heredada)
+for (const propiedad in persona) { // MEJORA: Usé const.
+    if (persona.hasOwnProperty(propiedad)) {
         console.log(propiedad + ": " + persona[propiedad]);
     }
 }
 
 // 3. Obtener un arreglo de las propiedades del objeto con 'Object.keys'
-var propiedades = Object.keys(persona);
+const propiedades = Object.keys(persona); // MEJORA: Usé const.
 console.log("Propiedades del objeto como arreglo:", propiedades); // ["nombre", "edad", "ciudad"]
 
 // 4. Iteración a través de propiedades del objeto usando 'Object.keys'
 console.log("Iteración a través de propiedades con 'Object.keys':");
-propiedades.forEach(function (propiedad) {
+propiedades.forEach((propiedad) => { // MEJORA: Usé arrow function.
     console.log(propiedad + ": " + persona[propiedad]);
 });
 
 // 5. Iteración a través de propiedades y valores con 'Object.entries' (ES6+)
 console.log("Iteración a través de propiedades y valores con 'Object.entries' (ES6+):");
-for (var [clave, valor] of Object.entries(persona)) {
+for (const [clave, valor] of Object.entries(persona)) { // MEJORA: Usé const.
     console.log(clave + ": " + valor);
 }
 
@@ -752,101 +648,75 @@ console.log("¿El objeto tiene la propiedad 'nombre'?", persona.hasOwnProperty("
 console.log("¿El objeto tiene la propiedad 'trabajo'?", persona.hasOwnProperty("trabajo")); // false
 
 // 7. Copia superficial de un objeto
-var copiaPersona = { ...persona }; // ES6+
+const copiaPersona = { ...persona }; // MEJORA: Usé const.
 console.log("Copia superficial del objeto:", copiaPersona);
 
 // 8. Iteración a través de propiedades de un objeto heredado
-var personaHeredada = Object.create(persona);
+const personaHeredada = Object.create(persona); // MEJORA: Usé const.
 personaHeredada.trabajo = "programador";
 
 console.log("Iteración a través de propiedades heredadas:");
-for (var propiedad in personaHeredada) {
+for (const propiedad in personaHeredada) { // MEJORA: Usé const.
     if (personaHeredada.hasOwnProperty(propiedad)) {
         console.log(propiedad + ": " + personaHeredada[propiedad]);
     }
 }
-```
-Este ejemplo cubre los siguientes conceptos relacionados con la iteración de objetos en JavaScript:
 
-1. Declaración de un objeto.
-2. Iteración a través de propiedades del objeto con `for...in`.
-3. Uso de `hasOwnProperty` para verificar si una propiedad es propia del objeto.
-4. Obtención de un arreglo de las propiedades del objeto con `Object.keys`.
-5. Iteración a través de propiedades del objeto utilizando `Object.keys`.
-6. Iteración a través de propiedades y valores con `Object.entries` (ES6+).
-7. Uso de métodos para verificar la existencia de propiedades en un objeto.
-8. Copia superficial de un objeto (ES6+).
-9. Iteración a través de propiedades de un objeto heredado.
+Este ejemplo cubre:
 
-Estos conceptos te permitirán trabajar con objetos de manera efectiva, ya sea para procesar propiedades propias o heredadas, iterar a través de ellas y manipular datos en tus aplicaciones.
+Iteración con for...in, Object.keys, Object.entries.
+Verificación con hasOwnProperty.
+Copias superficiales y manejo de herencia.
 
-### 11. Clases y Programación Orientada a Objetos
-
-JavaScript admite la programación orientada a objetos (POO). Puedes crear clases y objetos para organizar tu código de manera más estructurada.
-
-```javascript
+11. Clases y Programación Orientada a Objetos
+JavaScript admite POO con clases para un código estructurado.
 // 1. Declaración de una clase 'Persona'
 class Persona {
-    // 2. Constructor para inicializar propiedades
     constructor(nombre, edad) {
         this.nombre = nombre;
         this.edad = edad;
     }
 
-    // 3. Método de instancia para saludar
     saludar() {
         console.log(`Hola, soy ${this.nombre} y tengo ${this.edad} años.`);
     }
 }
 
-// 4. Creación de objetos (instancias) de la clase 'Persona'
-var juan = new Persona("Juan", 25);
-var maria = new Persona("Maria", 30);
+// 2. Creación de objetos (instancias) de la clase 'Persona'
+const juan = new Persona("Juan", 25); // MEJORA: Usé const.
+const maria = new Persona("Maria", 30); // MEJORA: Usé const.
 
-// 5. Llamada a métodos de instancia
+// 3. Llamada a métodos de instancia
 juan.saludar(); // Hola, soy Juan y tengo 25 años.
 maria.saludar(); // Hola, soy Maria y tengo 30 años.
 
-// 6. Herencia: Creación de una subclase 'Estudiante' que extiende de 'Persona'
+// 4. Herencia: Creación de una subclase 'Estudiante'
 class Estudiante extends Persona {
     constructor(nombre, edad, curso) {
-        super(nombre, edad); // Llamar al constructor de la clase padre
+        super(nombre, edad);
         this.curso = curso;
     }
 
-    // 7. Sobrescribir un método de la clase padre
     saludar() {
         console.log(`Hola, soy ${this.nombre}, tengo ${this.edad} años y estudio ${this.curso}.`);
     }
 }
 
-// 8. Creación de objetos de la subclase 'Estudiante'
-var estudiante1 = new Estudiante("Laura", 22, "Matemáticas");
-var estudiante2 = new Estudiante("Carlos", 28, "Historia");
+// 5. Creación de objetos de la subclase 'Estudiante'
+const estudiante1 = new Estudiante("Laura", 22, "Matemáticas"); // MEJORA: Usé const.
+const estudiante2 = new Estudiante("Carlos", 28, "Historia"); // MEJORA: Usé const.
 
-// 9. Llamada a métodos de instancia de la subclase
+// 6. Llamada a métodos de instancia de la subclase
 estudiante1.saludar(); // Hola, soy Laura, tengo 22 años y estudio Matemáticas.
 estudiante2.saludar(); // Hola, soy Carlos, tengo 28 años y estudio Historia.
-```
-Este ejemplo cubre los siguientes conceptos relacionados con clases y programación orientada a objetos (POO) en JavaScript:
 
-1. Declaración de una clase `Persona`.
-2. Uso de un constructor para inicializar propiedades en una clase.
-3. Definición de métodos de instancia en una clase.
-4. Creación de objetos (instancias) de la clase `Persona`.
-5. Llamada a métodos de instancia en objetos.
-6. Herencia: Creación de una subclase `Estudiante` que extiende de `Persona`.
-7. Sobrescritura de un método de la clase padre en la subclase.
-8. Creación de objetos de la subclase `Estudiante`.
-9. Llamada a métodos de instancia de la subclase.
+Este ejemplo cubre:
 
-Estos conceptos son fundamentales para aplicar la programación orientada a objetos en JavaScript y crear estructuras de código más organizadas y reutilizables.
+Declaración de clases, constructores, métodos.
+Herencia y sobrescritura de métodos.
 
-### 12. Manejo de Eventos
-
-JavaScript se utiliza ampliamente para manejar eventos en aplicaciones web. Puedes adjuntar funciones a eventos como clics de botón, cambios de entrada, etc.
-
-```html
+12. Manejo de Eventos
+JavaScript permite manejar eventos en aplicaciones web, como clics o cambios en entradas.
 <!DOCTYPE html>
 <html>
 <head>
@@ -859,101 +729,159 @@ JavaScript se utiliza ampliamente para manejar eventos en aplicaciones web. Pued
 
     <script>
         // 1. Seleccionar un elemento del DOM por su ID
-        var boton = document.getElementById("miBoton");
-        var entradaTexto = document.getElementById("entradaTexto");
-        var resultado = document.getElementById("resultado");
+        const boton = document.getElementById("miBoton"); // MEJORA: Usé const.
+        const entradaTexto = document.getElementById("entradaTexto"); // MEJORA: Usé const.
+        const resultado = document.getElementById("resultado"); // MEJORA: Usé const.
 
         // 2. Adjuntar un controlador de eventos a un elemento
-        boton.addEventListener("click", function() {
-            // 3. Manejar el evento (en este caso, mostrar una alerta)
+        boton.addEventListener("click", () => { // MEJORA: Usé arrow function.
             alert("Hiciste clic en el botón.");
         });
 
-        // 4. Adjuntar un controlador de eventos a un campo de entrada de texto
-        entradaTexto.addEventListener("input", function() {
-            // 5. Obtener el valor del campo de entrada de texto
-            var texto = entradaTexto.value;
-            
-            // 6. Actualizar el contenido de un elemento HTML
+        // 3. Adjuntar un controlador de eventos a un campo de entrada de texto
+        entradaTexto.addEventListener("input", () => { // MEJORA: Usé arrow function.
+            const texto = entradaTexto.value; // MEJORA: Usé const.
             resultado.innerHTML = "Texto ingresado: " + texto;
         });
 
-        // 7. Adjuntar un controlador de eventos para el evento 'mouseover'
-        boton.addEventListener("mouseover", function() {
+        // 4. Adjuntar un controlador de eventos para el evento 'mouseover'
+        boton.addEventListener("mouseover", () => { // MEJORA: Usé arrow function.
             boton.style.backgroundColor = "lightblue";
         });
 
-        // 8. Adjuntar un controlador de eventos para el evento 'mouseout'
-        boton.addEventListener("mouseout", function() {
+        // 5. Adjuntar un controlador de eventos para el evento 'mouseout'
+        boton.addEventListener("mouseout", () => { // MEJORA: Usé arrow function.
             boton.style.backgroundColor = "";
         });
     </script>
 </body>
 </html>
-```
-Este ejemplo cubre los siguientes conceptos relacionados con el manejo de eventos en JavaScript:
 
-1. Seleccionar un elemento del DOM por su ID.
-2. Adjuntar un controlador de eventos a un elemento.
-3. Manejar eventos, en este caso, mostrando una alerta al hacer clic en un botón.
-4. Adjuntar un controlador de eventos a un campo de entrada de texto.
-5. Obtener el valor del campo de entrada de texto.
-6. Actualizar el contenido de un elemento HTML con el valor del campo de entrada de texto.
-7. Adjuntar controladores de eventos para los eventos 'mouseover' (al pasar el ratón sobre el botón) y 'mouseout' (al quitar el ratón del botón).
-8. Cambiar el estilo de un elemento en respuesta a eventos ('mouseover' y 'mouseout' cambian el fondo del botón).
+Este ejemplo cubre:
 
-Estos conceptos son fundamentales para interactuar con elementos del DOM y responder a eventos en aplicaciones web.
+Selección de elementos del DOM.
+Manejo de eventos (click, input, mouseover, mouseout).
+Actualización del DOM en respuesta a eventos.
 
-### 13. AJAX y Fetch
-
-AJAX (Asynchronous JavaScript and XML) y Fetch son dos tecnologías utilizadas en desarrollo web para realizar solicitudes de red asíncronas y obtener datos de servidores web. Aunque AJAX fue ampliamente utilizado en el pasado, Fetch es una API más moderna que ha simplificado la forma en que se realizan estas solicitudes.
-
-JavaScript permite realizar solicitudes de red asíncronas para obtener datos de servidores web. La API Fetch es comúnmente utilizada para este propósito.
-
-```javascript
+13. AJAX y Fetch
+Fetch es una API moderna para solicitudes de red asíncronas, reemplazando a XMLHttpRequest por su simplicidad. // MEJORA: Explicación sobre ventajas de Fetch.
 // 1. Realizar una solicitud AJAX usando la API Fetch
 fetch('https://api.ejemplo.com/data')
     .then(response => {
-        // 2. Verificar el estado de la respuesta HTTP
         if (!response.ok) {
             throw new Error('Error en la solicitud: ' + response.status);
         }
-        // 3. Parsear la respuesta como JSON
         return response.json();
     })
     .then(data => {
-        // 4. Utilizar los datos recibidos
         console.log('Datos recibidos:', data);
     })
     .catch(error => {
-        // 5. Capturar errores de red o errores en la solicitud
         console.error('Error: ' + error);
     });
-```
-Este ejemplo cubre los siguientes conceptos relacionados con AJAX y Fetch en JavaScript:
 
-1. Realizar una solicitud AJAX utilizando la API Fetch.
-2. Verificar el estado de la respuesta HTTP para detectar errores en la solicitud.
-3. Parsear la respuesta como JSON para trabajar con los datos recibidos.
-4. Utilizar los datos obtenidos en la respuesta de la solicitud.
-5. Capturar y manejar errores, ya sea errores de red o errores en la solicitud.
+Este ejemplo cubre:
 
-El uso de Fetch es una técnica común en el desarrollo web para realizar solicitudes de red asíncronas y obtener datos de servidores web, lo que permite interactuar con APIs y recuperar información dinámica para su uso en aplicaciones web.
+Solicitudes con Fetch.
+Verificación de respuestas HTTP.
+Parseo de JSON y manejo de errores.
 
-Estos son algunos de los conceptos fundamentales que te ayudarán a comprender y utilizar JavaScript de manera efectiva. JavaScript es un lenguaje poderoso y versátil que se utiliza en una variedad de contextos, incluyendo desarrollo web, aplicaciones móviles y más. Practicar y trabajar en proyectos te ayudará a fortalecer tus habilidades en JavaScript.
+14. Promesas
+Las promesas representan el éxito o fracaso de operaciones asíncronas, como solicitudes de red. // MEJORA: Agregada para complementar Fetch y preparar para async/await.
+// 1. Crear una promesa
+const miPromesa = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        const exito = true; // Cambia a false para simular error
+        if (exito) {
+            resolve('Operación exitosa');
+        } else {
+            reject('Error en la operación');
+        }
+    }, 2000);
+});
 
-## Autor
+// 2. Manejar la promesa
+miPromesa
+    .then(resultado => {
+        console.log(resultado); // 'Operación exitosa'
+    })
+    .catch(error => {
+        console.error(error); // 'Error en la operación'
+    })
+    .finally(() => {
+        console.log('Promesa finalizada'); // Siempre se ejecuta
+    });
 
-* **Matias Ignacio Paredes Marquez** - [Perfil de GitHub](https://github.com/Matignaciom)
+Este ejemplo muestra creación y manejo de promesas con .then, .catch y .finally.
+15. Async/Await
+Async/await es azúcar sintáctico sobre promesas, haciendo el código asíncrono más legible. // MEJORA: Agregada para mostrar un enfoque moderno a asincronía.
+// 1. Función async que usa await
+async function obtenerDatos() {
+    try {
+        const response = await fetch('https://api.ejemplo.com/data');
+        if (!response.ok) {
+            throw new Error('Error en la solicitud');
+        }
+        const data = await response.json();
+        console.log('Datos:', data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
-## Agradecimientos
+// 2. Llamar a la función async
+obtenerDatos();
 
+Este ejemplo integra Fetch con async/await, mejorando legibilidad y manejo de errores.
+16. Módulos ES6
+Los módulos organizan código en archivos separados usando import/export, promoviendo reutilización. // MEJORA: Agregada para cubrir modularidad en proyectos grandes.
+// Archivo: math.js
+export const suma = (a, b) => a + b;
+export const PI = 3.1416;
+
+// Archivo: main.js
+import { suma, PI } from './math.js';
+
+console.log(suma(2, 3)); // 5
+console.log(PI); // 3.1416
+
+Ejecuta con <script type="module"> en HTML o Node.js (.mjs).
+17. Manejo de Errores Avanzado
+Errores personalizados mejoran la depuración en aplicaciones robustas. // MEJORA: Agregada para expandir manejo de errores.
+// 1. Error personalizado
+class ErrorPersonalizado extends Error {
+    constructor(mensaje) {
+        super(mensaje);
+        this.name = 'ErrorPersonalizado';
+    }
+}
+
+// 2. Lanzar y capturar
+function validarEntrada(entrada) {
+    if (typeof entrada !== 'number') {
+        throw new ErrorPersonalizado('Entrada no es número');
+    }
+    return entrada * 2;
+}
+
+try {
+    console.log(validarEntrada('texto')); // Lanza error
+} catch (error) {
+    if (error instanceof ErrorPersonalizado) {
+        console.error('Error específico:', error.message);
+    } else {
+        console.error('Error general:', error);
+    }
+}
+
+Este ejemplo muestra errores tipados y manejo condicional.
+Autor
+
+Matias Ignacio Paredes Marquez - Perfil de GitHub
+
+Agradecimientos
 Hecho con ❤️ por Matias Ignacio - https://github.com/Matignaciom
-
-## Contacto
-
-Si tienes alguna pregunta o sugerencia sobre este proyecto, no dudes en ponerte en contacto conmigo a través de mat.ignaciom95@gmail.com.
-
-## Licencia
-
-Este proyecto se distribuye bajo la licencia de uso personal. Puedes usar este proyecto con fines personales, pero no está permitido su uso comercial sin el permiso expreso del autor.
+Contacto
+Si tienes preguntas o sugerencias, contáctame en mat.ignaciom95@gmail.com.
+Licencia
+Este proyecto se distribuye bajo licencia de uso personal. Puedes usarlo con fines personales, pero no está permitido su uso comercial sin permiso del autor.
