@@ -1,35 +1,50 @@
-JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado
+# JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado
+
 Este repositorio es una guía completa para aprender JavaScript, comenzando desde los fundamentos más básicos y avanzando hacia técnicas avanzadas. Ya sea que seas un principiante que recién comienza a programar o un desarrollador intermedio que busca perfeccionar sus habilidades, encontrarás lecciones y ejemplos prácticos para ayudarte a dominar JavaScript.
-Este trabajo, JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado (Dominando_JavaScript), se publica bajo una Licencia Creative Commons Atribución-NoComercial 4.0 Internacional por Matías Ignacio Paredes Márquez. Para obtener más información sobre la licencia, visita: Licencia. // MEJORA: Corregí "NoComercial" a "Atribución-NoComercial" para precisión en el nombre de la licencia.
-Consejo general: Prueba los ejemplos en la consola del navegador (F12 > Console) o herramientas en línea como JSFiddle o CodePen para ver resultados en tiempo real. Esto mejora el aprendizaje interactivo. // MEJORA: Agregado para mejorar usabilidad.
-1. Variables y Tipos de Datos
-JavaScript es un lenguaje de programación dinámico que te permite declarar variables utilizando tres palabras clave: var, let, y const. Estas tienen diferentes alcances y usos. En código moderno, se recomienda evitar var y preferir let o const para prevenir errores como hoisting inesperado. // MEJORA: Énfasis en mejores prácticas para JS moderno.
-var:
 
-Declara variables con ámbito de función o global.
-Pueden ser redeclaradas y actualizadas en cualquier lugar del ámbito.
-No respetan el ámbito de bloque, lo que puede causar filtraciones fuera de condicionales o bucles.
+Este trabajo, *JavaScript Mastery: Desde lo Fundamental hasta lo Avanzado* (Dominando_JavaScript), se publica bajo una Licencia Creative Commons Atribución-NoComercial 4.0 Internacional por Matías Ignacio Paredes Márquez. Para obtener más información sobre la licencia, visita: Licencia. // MEJORA: Corregí "NoComercial" a "Atribución-NoComercial" para precisión en el nombre de la licencia.
 
+**Consejo general**: Prueba los ejemplos en la consola del navegador (F12 &gt; Console) o herramientas en línea como JSFiddle o CodePen para ver resultados en tiempo real. Esto mejora el aprendizaje interactivo. // MEJORA: Agregado para mejorar usabilidad.
+
+## 1. Variables y Tipos de Datos
+
+JavaScript es un lenguaje de programación dinámico que te permite declarar variables utilizando tres palabras clave: `var`, `let`, y `const`. Estas tienen diferentes alcances y usos. En código moderno, se recomienda evitar `var` y preferir `let` o `const` para prevenir errores como hoisting inesperado. // MEJORA: Énfasis en mejores prácticas para JS moderno.
+
+### `var`:
+
+- Declara variables con ámbito de función o global.
+- Pueden ser redeclaradas y actualizadas en cualquier lugar del ámbito.
+- No respetan el ámbito de bloque, lo que puede causar filtraciones fuera de condicionales o bucles.
+
+```javascript
 var edad = 30;
+```
 
-let:
+### `let`:
 
-Declara variables con ámbito de bloque.
-No permite redeclaración en el mismo ámbito.
-Respeta el ámbito de bloque, evitando filtraciones.
+- Declara variables con ámbito de bloque.
+- No permite redeclaración en el mismo ámbito.
+- Respeta el ámbito de bloque, evitando filtraciones.
 
+```javascript
 let nombre = "Juan";
+```
 
-const:
+### `const`:
 
-Declara variables con ámbito de bloque que no cambian su valor tras la asignación inicial.
-Deben asignarse al declararse y no pueden reasignarse.
-Respeta el ámbito de bloque, como let.
+- Declara variables con ámbito de bloque que no cambian su valor tras la asignación inicial.
+- Deben asignarse al declararse y no pueden reasignarse.
+- Respeta el ámbito de bloque, como `let`.
 
+```javascript
 const PI = 3.1416;
+```
 
-1.1 Scope de variables var, let y const
-Scope de var:
+## 1.1 Scope de variables var, let y const
+
+### Scope de `var`:
+
+```javascript
 function ejemploVar() {
   if (true) {
     var x = 10;
@@ -39,9 +54,13 @@ function ejemploVar() {
 
 ejemploVar(); // Imprime 10
 // console.log(x); // MEJORA: Comenté esta línea porque x no debería estar disponible globalmente en código moderno; evita confusiones.
+```
 
-Las variables declaradas con var dentro de un bloque if son accesibles fuera debido a su ámbito de función o global.
-Scope de let:
+Las variables declaradas con `var` dentro de un bloque `if` son accesibles fuera debido a su ámbito de función o global.
+
+### Scope de `let`:
+
+```javascript
 function ejemploLet() {
   if (true) {
     let y = 20;
@@ -50,9 +69,13 @@ function ejemploLet() {
 }
 
 ejemploLet(); // Genera un error: "y is not defined"
+```
 
-Con let, la variable y tiene ámbito de bloque, por lo que no es accesible fuera del bloque if, evitando fugas de variables.
-Scope de const:
+Con `let`, la variable `y` tiene ámbito de bloque, por lo que no es accesible fuera del bloque `if`, evitando fugas de variables.
+
+### Scope de `const`:
+
+```javascript
 function ejemploConst() {
   if (true) {
     const z = 30;
@@ -61,11 +84,17 @@ function ejemploConst() {
 }
 
 ejemploConst(); // Genera un error: "z is not defined"
+```
 
-El comportamiento de const es similar a let en cuanto a ámbito de bloque.
-var tiene ámbito de función o global, mientras que let y const tienen ámbito de bloque. Usar let y const es preferible para código más seguro y predecible.
-2. Operadores
+El comportamiento de `const` es similar a `let` en cuanto a ámbito de bloque.
+
+`var` tiene ámbito de función o global, mientras que `let` y `const` tienen ámbito de bloque. Usar `let` y `const` es preferible para código más seguro y predecible.
+
+## 2. Operadores
+
 JavaScript admite operadores para operaciones matemáticas, comparaciones y más.
+
+```javascript
 const numero1 = 10; // MEJORA: Cambié a const para variables inmutables.
 const numero2 = 5;
 
@@ -97,9 +126,13 @@ const condicion2 = false;
 const yLogico = condicion1 && condicion2; // yLogico = false (AND lógico)
 const oLogico = condicion1 || condicion2; // oLogico = true (OR lógico)
 const noLogico = !condicion1; // noLogico = false (NOT lógico)
+```
 
-3. Condicionales
+## 3. Condicionales
+
 Las instrucciones condicionales permiten tomar decisiones en el código.
+
+```javascript
 // Función para determinar si un número es par o impar
 function esParOImpar(numero) {
     if (typeof numero !== 'number') {
@@ -143,10 +176,15 @@ switch (diaDeLaSemana) {
 const numero = -5; // MEJORA: Usé const.
 const esPositivo = (numero >= 0) ? 'positivo' : 'negativo';
 console.log('El número es ' + esPositivo);
+```
 
 Este código muestra cómo verificar si un número es par o impar, tomar decisiones basadas en el día de la semana y usar el operador ternario para determinar si un número es positivo o negativo, con manejo de excepciones.
-4. Bucles
+
+## 4. Bucles
+
 Los bucles permiten repetir un bloque de código varias veces.
+
+```javascript
 // Ejemplo de bucle 'for' para imprimir números del 1 al 5
 for (let i = 1; i <= 5; i++) {
     console.log('Número:', i);
@@ -228,10 +266,15 @@ function bucleAsincronico() {
 }
 
 bucleAsincronico();
+```
 
-Este ejemplo abarca bucles for, while, do...while, iteración de arrays y objetos, control con break y continue, bucles anidados, optimización de bucles y bucles asincrónicos.
-5. Funciones
+Este ejemplo abarca bucles `for`, `while`, `do...while`, iteración de arrays y objetos, control con `break` y `continue`, bucles anidados, optimización de bucles y bucles asincrónicos.
+
+## 5. Funciones
+
 Las funciones son bloques de código reutilizables que pueden recibir argumentos y devolver valores.
+
+```javascript
 // 1. Declaración de una función con parámetros y valor de retorno
 function suma(a, b) {
     return a + b;
@@ -329,22 +372,26 @@ const restaResult = calculadora.restar(8, 2);
 
 console.log("Suma:", sumaResult); // Suma: 8
 console.log("Resta:", restaResult); // Resta: 6
+```
 
 Este ejemplo cubre:
 
-Declaración de funciones.
-Llamada a funciones y retorno de valores.
-Funciones sin valor de retorno.
-Parámetros predeterminados (ES6+).
-Funciones anónimas y asignación a variables.
-Funciones flecha (ES6+).
-Funciones recursivas.
-Funciones como argumentos (callbacks).
-Cierres y funciones internas.
-Funciones como métodos de objetos.
+ 1. Declaración de funciones.
+ 2. Llamada a funciones y retorno de valores.
+ 3. Funciones sin valor de retorno.
+ 4. Parámetros predeterminados (ES6+).
+ 5. Funciones anónimas y asignación a variables.
+ 6. Funciones flecha (ES6+).
+ 7. Funciones recursivas.
+ 8. Funciones como argumentos (callbacks).
+ 9. Cierres y funciones internas.
+10. Funciones como métodos de objetos.
 
-6. Arreglos
+## 6. Arreglos
+
 Los arreglos almacenan conjuntos de valores en una sola variable.
+
+```javascript
 // 1. Declaración de un arreglo
 let frutas = ["manzana", "banana", "naranja"]; // MEJORA: Usé let porque el arreglo será mutado.
 
@@ -401,16 +448,20 @@ console.log("Números pares:", numerosPares); // [2, 4]
 // 14. Reducir un arreglo a un solo valor con 'reduce'
 const sumaTotal = numeros.reduce((acumulador, numero) => acumulador + numero, 0); // MEJORA: Usé arrow function.
 console.log("Suma total de números:", sumaTotal); // Suma total de números: 15
+```
 
 Este ejemplo cubre:
 
-Declaración de arreglos.
-Acceso a elementos por índice.
-Uso de length.
-Métodos push, pop, unshift, shift, indexOf, splice, slice, for...of, map, filter, reduce.
+1. Declaración de arreglos.
+2. Acceso a elementos por índice.
+3. Uso de `length`.
+4. Métodos `push`, `pop`, `unshift`, `shift`, `indexOf`, `splice`, `slice`, `for...of`, `map`, `filter`, `reduce`.
 
-7. Objetos
+## 7. Objetos
+
 Los objetos son estructuras de datos que representan entidades del mundo real y sus atributos, fundamentales en programación orientada a objetos (POO).
+
+```javascript
 // 1. Declaración de un objeto
 const persona = { // MEJORA: Usé const.
     nombre: "Juan",
@@ -489,17 +540,21 @@ console.log("Libro:", libro);
 // 12. Desestructuración de objetos (ES6+)
 const { titulo, autor } = libro; // MEJORA: Usé const.
 console.log("Título:", titulo, "Autor:", autor);
+```
 
 Este ejemplo cubre:
 
-Declaración de objetos.
-Acceso, modificación, adición y eliminación de propiedades.
-Verificación de propiedades con in.
-Iteración con for...in.
-Funciones constructoras, métodos, prototipos, herencia y desestructuración.
+1. Declaración de objetos.
+2. Acceso, modificación, adición y eliminación de propiedades.
+3. Verificación de propiedades con `in`.
+4. Iteración con `for...in`.
+5. Funciones constructoras, métodos, prototipos, herencia y desestructuración.
 
-8. Arreglos Multidimensionales
+## 8. Arreglos Multidimensionales
+
 Los arreglos multidimensionales contienen otros arreglos, ideales para estructuras complejas como matrices.
+
+```javascript
 // 1. Declaración de un arreglo multidimensional (matriz)
 let matriz = [ // MEJORA: Usé let por mutabilidad.
     [1, 2, 3],
@@ -552,16 +607,20 @@ function crearMatriz(filas, columnas) {
 const nuevaMatriz = crearMatriz(2, 3); // MEJORA: Usé const.
 nuevaMatriz[0][1] = 42;
 console.log("Valor en la fila 1, columna 2 de la nueva matriz:", nuevaMatriz[0][1]);
+```
 
 Este ejemplo cubre:
 
-Declaración, acceso y modificación de matrices.
-Iteración con bucles anidados.
-Creación de matrices vacías y en objetos.
-Creación de matrices con funciones.
+1. Declaración, acceso y modificación de matrices.
+2. Iteración con bucles anidados.
+3. Creación de matrices vacías y en objetos.
+4. Creación de matrices con funciones.
 
-9. Métodos de Arreglos
+## 9. Métodos de Arreglos
+
 JavaScript ofrece métodos para manipular arreglos de forma eficiente.
+
+```javascript
 // 1. Declaración de un arreglo
 let frutas = ["manzana", "banana", "naranja"]; // MEJORA: Usé let por mutabilidad.
 
@@ -608,10 +667,15 @@ console.log("Frutas en mayúsculas:", frutasEnMayusculas); // ["PERA", "NARANJA"
 // 11. Reducir un arreglo a un solo valor con 'reduce'
 const sumaDeLongitudes = frutas.reduce((acumulador, fruta) => acumulador + fruta.length, 0); // MEJORA: Usé arrow function.
 console.log("Suma de longitudes de frutas:", sumaDeLongitudes); // Suma de longitudes de frutas: 12
+```
 
-Este ejemplo cubre métodos como push, pop, shift, unshift, indexOf, splice, forEach, filter, map y reduce.
-10. Iteración de Objetos
-Puedes iterar sobre propiedades de un objeto con for...in o métodos como Object.keys.
+Este ejemplo cubre métodos como `push`, `pop`, `shift`, `unshift`, `indexOf`, `splice`, `forEach`, `filter`, `map` y `reduce`.
+
+## 10. Iteración de Objetos
+
+Puedes iterar sobre propiedades de un objeto con `for...in` o métodos como `Object.keys`.
+
+```javascript
 // 1. Declaración de un objeto
 const persona = { // MEJORA: Usé const.
     nombre: "Juan",
@@ -661,15 +725,19 @@ for (const propiedad in personaHeredada) { // MEJORA: Usé const.
         console.log(propiedad + ": " + personaHeredada[propiedad]);
     }
 }
+```
 
 Este ejemplo cubre:
 
-Iteración con for...in, Object.keys, Object.entries.
-Verificación con hasOwnProperty.
-Copias superficiales y manejo de herencia.
+1. Iteración con `for...in`, `Object.keys`, `Object.entries`.
+2. Verificación con `hasOwnProperty`.
+3. Copias superficiales y manejo de herencia.
 
-11. Clases y Programación Orientada a Objetos
+## 11. Clases y Programación Orientada a Objetos
+
 JavaScript admite POO con clases para un código estructurado.
+
+```javascript
 // 1. Declaración de una clase 'Persona'
 class Persona {
     constructor(nombre, edad) {
@@ -709,14 +777,18 @@ const estudiante2 = new Estudiante("Carlos", 28, "Historia"); // MEJORA: Usé co
 // 6. Llamada a métodos de instancia de la subclase
 estudiante1.saludar(); // Hola, soy Laura, tengo 22 años y estudio Matemáticas.
 estudiante2.saludar(); // Hola, soy Carlos, tengo 28 años y estudio Historia.
+```
 
 Este ejemplo cubre:
 
-Declaración de clases, constructores, métodos.
-Herencia y sobrescritura de métodos.
+1. Declaración de clases, constructores, métodos.
+2. Herencia y sobrescritura de métodos.
 
-12. Manejo de Eventos
+## 12. Manejo de Eventos
+
 JavaScript permite manejar eventos en aplicaciones web, como clics o cambios en entradas.
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -756,15 +828,19 @@ JavaScript permite manejar eventos en aplicaciones web, como clics o cambios en 
     </script>
 </body>
 </html>
+```
 
 Este ejemplo cubre:
 
-Selección de elementos del DOM.
-Manejo de eventos (click, input, mouseover, mouseout).
-Actualización del DOM en respuesta a eventos.
+1. Selección de elementos del DOM.
+2. Manejo de eventos (`click`, `input`, `mouseover`, `mouseout`).
+3. Actualización del DOM en respuesta a eventos.
 
-13. AJAX y Fetch
+## 13. AJAX y Fetch
+
 Fetch es una API moderna para solicitudes de red asíncronas, reemplazando a XMLHttpRequest por su simplicidad. // MEJORA: Explicación sobre ventajas de Fetch.
+
+```javascript
 // 1. Realizar una solicitud AJAX usando la API Fetch
 fetch('https://api.ejemplo.com/data')
     .then(response => {
@@ -779,15 +855,19 @@ fetch('https://api.ejemplo.com/data')
     .catch(error => {
         console.error('Error: ' + error);
     });
+```
 
 Este ejemplo cubre:
 
-Solicitudes con Fetch.
-Verificación de respuestas HTTP.
-Parseo de JSON y manejo de errores.
+1. Solicitudes con Fetch.
+2. Verificación de respuestas HTTP.
+3. Parseo de JSON y manejo de errores.
 
-14. Promesas
+## 14. Promesas
+
 Las promesas representan el éxito o fracaso de operaciones asíncronas, como solicitudes de red. // MEJORA: Agregada para complementar Fetch y preparar para async/await.
+
+```javascript
 // 1. Crear una promesa
 const miPromesa = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -811,10 +891,15 @@ miPromesa
     .finally(() => {
         console.log('Promesa finalizada'); // Siempre se ejecuta
     });
+```
 
-Este ejemplo muestra creación y manejo de promesas con .then, .catch y .finally.
-15. Async/Await
+Este ejemplo muestra creación y manejo de promesas con `.then`, `.catch` y `.finally`.
+
+## 15. Async/Await
+
 Async/await es azúcar sintáctico sobre promesas, haciendo el código asíncrono más legible. // MEJORA: Agregada para mostrar un enfoque moderno a asincronía.
+
+```javascript
 // 1. Función async que usa await
 async function obtenerDatos() {
     try {
@@ -831,10 +916,15 @@ async function obtenerDatos() {
 
 // 2. Llamar a la función async
 obtenerDatos();
+```
 
 Este ejemplo integra Fetch con async/await, mejorando legibilidad y manejo de errores.
-16. Módulos ES6
-Los módulos organizan código en archivos separados usando import/export, promoviendo reutilización. // MEJORA: Agregada para cubrir modularidad en proyectos grandes.
+
+## 16. Módulos ES6
+
+Los módulos organizan código en archivos separados usando `import`/`export`, promoviendo reutilización. // MEJORA: Agregada para cubrir modularidad en proyectos grandes.
+
+```javascript
 // Archivo: math.js
 export const suma = (a, b) => a + b;
 export const PI = 3.1416;
@@ -844,10 +934,15 @@ import { suma, PI } from './math.js';
 
 console.log(suma(2, 3)); // 5
 console.log(PI); // 3.1416
+```
 
-Ejecuta con <script type="module"> en HTML o Node.js (.mjs).
-17. Manejo de Errores Avanzado
+Ejecuta con `<script type="module">` en HTML o Node.js (.mjs).
+
+## 17. Manejo de Errores Avanzado
+
 Errores personalizados mejoran la depuración en aplicaciones robustas. // MEJORA: Agregada para expandir manejo de errores.
+
+```javascript
 // 1. Error personalizado
 class ErrorPersonalizado extends Error {
     constructor(mensaje) {
@@ -873,15 +968,22 @@ try {
         console.error('Error general:', error);
     }
 }
+```
 
 Este ejemplo muestra errores tipados y manejo condicional.
-Autor
 
-Matias Ignacio Paredes Marquez - Perfil de GitHub
+## Autor
 
-Agradecimientos
+- **Matias Ignacio Paredes Marquez** - Perfil de GitHub
+
+## Agradecimientos
+
 Hecho con ❤️ por Matias Ignacio - https://github.com/Matignaciom
-Contacto
+
+## Contacto
+
 Si tienes preguntas o sugerencias, contáctame en mat.ignaciom95@gmail.com.
-Licencia
+
+## Licencia
+
 Este proyecto se distribuye bajo licencia de uso personal. Puedes usarlo con fines personales, pero no está permitido su uso comercial sin permiso del autor.
